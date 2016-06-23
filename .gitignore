@@ -2,3 +2,7 @@ target
 .env
 .idea/
 *.iml
+/.settings
+/.classpath
+/.project
+/.gitignore
