@@ -1,6 +1,6 @@
 {
-  "name": "Ursula GIS",
-  "description": "The GIS side of the ursula erp ecosistem to be deployed to Heroku.",
+  "name": "Java Example",
+  "description": "A barebones Java app, which can easily be deployed to Heroku.",
   "image": "heroku/java",
   "addons": [ "heroku-postgresql" ]
 }
