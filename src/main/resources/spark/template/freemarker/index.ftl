@@ -15,7 +15,7 @@
     </a>
     <h1>Ursula GIS</h1>
     <p>This is an aplication to clean an review harvest maps asociated to the Ursula ERP.</p>
-	 <a type="button" class="btn btn-lg btn-default" href="https://www.ursulagis.com/hello"><span class="glyphicon glyphicon-flash"></span> Hello</a>
+	 <a type="button" class="btn btn-lg btn-default" href="http://www.ursulagis.com/hello"><span class="glyphicon glyphicon-flash"></span> Hello</a>
     <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-java"><span class="glyphicon glyphicon-flash"></span> Getting Started with Java</a>
     <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/java-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
   </div>
