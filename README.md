@@ -1,4 +1,8 @@
-# java-getting-started
+# ursulaGis
+A GIS side to the ursula ERP ecosistem.
+On a first step it should expose a microservice to clean a harvest map uploaded as a shp file.
+Later you can review your uploaded harvest maps, organize them, merge them, interpolate them, 
+asign a price and a cost and se your above or below the cost margin distribution.
 
 A barebones Java app, which can easily be deployed to Heroku.
 
@@ -11,9 +15,6 @@ This application supports the [Getting Started with Java on Heroku](https://devc
 Make sure you have Java and Maven installed.  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
 
 ```sh
-$ git clone https://github.com/heroku/java-getting-started.git
-$ cd java-getting-started
-$ mvn install
 $ heroku local:start
 ```
 
