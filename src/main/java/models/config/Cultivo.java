@@ -14,7 +14,7 @@ import javax.persistence.NamedQuery;
 @Entity
 @NamedQueries({
 	@NamedQuery(name=Cultivo.FIND_ALL, query="SELECT c FROM Cultivo c") ,
-	@NamedQuery(name=Cultivo.FIND_NAME, query="SELECT o FROM Cultivo o where o.name = :name") ,
+	@NamedQuery(name=Cultivo.FIND_NAME, query="SELECT o FROM Cultivo o where o.nombre = :name") ,
 }) 
 public class Cultivo implements Comparable<Cultivo>{
 	public static final String FIND_ALL="Cultivo.findAll";
@@ -24,6 +24,7 @@ public class Cultivo implements Comparable<Cultivo>{
 	private long id;
 	public String nombre=new String();
 	
+	public Cultivo(){}
 	public Cultivo(String cultivoName) {
 		this.nombre=(cultivoName);
 	}

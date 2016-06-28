@@ -28,6 +28,9 @@ public class Lote implements Comparable<Lote> {
 	@ManyToOne
 	private Establecimiento establecimiento=null;
 
+	public Lote(){
+		
+	}
 	public Lote(Establecimiento e, String n){
 		this.establecimiento=e;
 		this.nombre=n;

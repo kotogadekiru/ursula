@@ -28,6 +28,7 @@ public class Empresa implements Comparable<Empresa>{
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="empresa")
 	private List<Establecimiento> establecimientos=new ArrayList<Establecimiento>();
 	
+	public Empresa(){}
 	public Empresa(String nombre){
 		this.nombre=nombre;
 	}

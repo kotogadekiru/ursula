@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -20,8 +21,8 @@ public class Establecimiento implements Comparable<Establecimiento> {
 	public static final String FIND_ALL = "Establecimiento.findAll";
 	public static final String FIND_NAME = "Establecimiento.findName";
 	
-	@Id @GeneratedValue
-	    private long id;
+	@Id @GeneratedValue//(strategy = GenerationType.IDENTITY)
+	private long id;
 	
 	public String nombre=new String();
 	@ManyToOne
@@ -30,6 +31,9 @@ public class Establecimiento implements Comparable<Establecimiento> {
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="establecimiento")
 	private List<Lote> lotes;
 	
+	public Establecimiento(){
+		
+	}
 	 public Establecimiento(String establecimientoName) {
 			nombre= establecimientoName;
 	}

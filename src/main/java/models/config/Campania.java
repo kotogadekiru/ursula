@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
 @Entity
 @NamedQueries({
 	@NamedQuery(name=Campania.FIND_ALL, query="SELECT o FROM Campania o") ,
-	@NamedQuery(name=Campania.FIND_NAME, query="SELECT o FROM Campania o where o.name = :name") ,
+	@NamedQuery(name=Campania.FIND_NAME, query="SELECT o FROM Campania o where o.nombre = :name") ,
 }) 
 
 public class Campania implements Comparable<Campania>{
@@ -29,6 +29,7 @@ public class Campania implements Comparable<Campania>{
 	@Temporal(TemporalType.DATE)
 	private Calendar fin=Calendar.getInstance();
 
+	public Campania(){}
 	public Campania(String periodoName) {
 		this.nombre=(periodoName);
 	}
