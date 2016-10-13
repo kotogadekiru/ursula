@@ -9,13 +9,11 @@
   <#include "nav.ftl">
 
 <div class="container">
-  ${message}
-  <h1>Database Output</h1>
-    <ul>
-    <#list results as x>
-      <li> ${x} </li>
-    </#list>
-    </ul>
+<form method='post' enctype='multipart/form-data'>
+    <input type='file' name='uploaded_file'>
+    <button>Upload picture</button>"
+</form>"
+
 
 </div>
 

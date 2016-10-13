@@ -16,7 +16,7 @@
     <h1>Ursula GIS</h1>
     <p>This is an aplication to clean an review harvest maps asociated to the Ursula ERP.</p>
 	 <a type="button" class="btn btn-lg btn-default" href="./hello"><span class="glyphicon glyphicon-flash"></span> Hello</a>
-    <a type="button" class="btn btn-lg btn-default" href="./tutorials"><span class="glyphicon glyphicon-flash"></span> Tutorials </a>
+    <a type="button" class="btn btn-lg btn-default" href="./ursula-geoserver"><span class="glyphicon glyphicon-flash"></span> Geoserver </a>
     <a type="button" class="btn btn-lg btn-primary" href="https://github.com/kotogadekiru/ursula"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
   </div>
 </div>
