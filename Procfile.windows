@@ -1,3 +1,2 @@
-web:    java -cp target\classes;target\dependency\* Main
-##web:    java -cp target\classes;target\dependency\* app/Application
+web:    java -jar target/ursulagis.jar
 

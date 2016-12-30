@@ -91,7 +91,7 @@ public class Main {
 
 		get("/uploadZip",(request,response)->
 		"<form method='post' enctype='multipart/form-data'>" // note the enctype
-		+ "    <input type='file' name='uploaded_file' accept='.zip'>" // make sure to call getPart using the same "name" in the post
+		+ "    <input type='file' name='uploaded_file' accept='.zip, *.rar'>" // make sure to call getPart using the same "name" in the post
 		+ "    <button>Upload picture</button>"
 		+ "</form>"
 				);

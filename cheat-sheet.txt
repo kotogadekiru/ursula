@@ -14,7 +14,7 @@ heroku local web -f Procfile.windows
  git commit -m "Demo"
  git push heroku master
  
- heroku run bash
+heroku run bash
  
-  heroku config
+heroku config
   
