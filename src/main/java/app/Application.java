@@ -1,5 +1,6 @@
 package app;
 
+import app.index.IndexController;
 //import app.book.*;
 //import app.index.*;
 import app.login.*;
@@ -9,8 +10,13 @@ import static spark.Spark.*;
 import static spark.debug.DebugScreen.enableDebugScreen;
 //import static spark.debug.DebugScreen.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import app.user.UserDao;
 import app.util.Filters;
+import spark.ModelAndView;
+import spark.template.freemarker.FreeMarkerEngine;
 
 public class Application {
 
@@ -19,23 +25,34 @@ public class Application {
     public static UserDao userDao;
 
     public static void main(String[] args) {
-
+    	System.out.println("ejecutando Application.main()");
+    	String port = System.getenv("PORT");
+    	if(port==null){
+    		System.out.println("PORT enviroment variable not set. Defaulting to 5000");
+    		port = "5000";
+    	}
+    	port(Integer.valueOf(port));
         // Instantiate your dependencies
 //        bookDao = new BookDao();
         userDao = new UserDao();
 
         // Configure Spark
-        port(4567);
+        //port(4567);
         staticFiles.location("/public");
         staticFiles.expireTime(600L);
-        enableDebugScreen();
+        //enableDebugScreen();
 
         // Set up before-filters (called before each get/post)
         before("*",                  Filters.addTrailingSlashes);
         before("*",                  Filters.handleLocaleChange);
+		get("/", (request, response) -> {
+			Map<String, Object> attributes = new HashMap<>();
+			attributes.put("message", "Ursula GIS!");
 
+			return new ModelAndView(attributes, "index.ftl");
+		}, new FreeMarkerEngine());
         // Set up routes
-//       get(Path.Web.INDEX,          IndexController.serveIndexPage);
+       get(Path.Web.INDEX,          IndexController.serveIndexPage);
 //        get(Path.Web.BOOKS,          BookController.fetchAllBooks);
 //        get(Path.Web.ONE_BOOK,       BookController.fetchOneBook);
         get(Path.Web.LOGIN,          LoginController.serveLoginPage);

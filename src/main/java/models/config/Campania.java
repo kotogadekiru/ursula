@@ -10,13 +10,15 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import lombok.Data;
+
 
 @Entity
 @NamedQueries({
 	@NamedQuery(name=Campania.FIND_ALL, query="SELECT o FROM Campania o") ,
 	@NamedQuery(name=Campania.FIND_NAME, query="SELECT o FROM Campania o where o.nombre = :name") ,
 }) 
-
+@Data
 public class Campania implements Comparable<Campania>{
 	public static final String FIND_ALL="Campania.findAll";
 	public static final String FIND_NAME="Campania.findName";
@@ -34,61 +36,61 @@ public class Campania implements Comparable<Campania>{
 		this.nombre=(periodoName);
 	}
 
-	/**
-	 * @return the id
-	 */
-	public long getId() {
-		return id;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	/**
-	 * @return the nombre
-	 */
-	public String getNombre() {
-		return nombre;
-	}
-
-	/**
-	 * @param nombre the nombre to set
-	 */
-	public void setNombre(String nombre) {
-		this.nombre=(nombre);
-	}
-
-	/**
-	 * @return the inicio
-	 */
-	public Calendar getInicio() {
-		return inicio;
-	}
-
-	/**
-	 * @param inicio the inicio to set
-	 */
-	public void setInicio(Calendar inicio) {
-		this.inicio = inicio;
-	}
-
-	/**
-	 * @return the fin
-	 */
-	public Calendar getFin() {
-		return fin;
-	}
-
-	/**
-	 * @param fin the fin to set
-	 */
-	public void setFin(Calendar fin) {
-		this.fin = fin;
-	}
+//	/**
+//	 * @return the id
+//	 */
+//	public long getId() {
+//		return id;
+//	}
+//
+//	/**
+//	 * @param id the id to set
+//	 */
+//	public void setId(long id) {
+//		this.id = id;
+//	}
+//
+//	/**
+//	 * @return the nombre
+//	 */
+//	public String getNombre() {
+//		return nombre;
+//	}
+//
+//	/**
+//	 * @param nombre the nombre to set
+//	 */
+//	public void setNombre(String nombre) {
+//		this.nombre=(nombre);
+//	}
+//
+//	/**
+//	 * @return the inicio
+//	 */
+//	public Calendar getInicio() {
+//		return inicio;
+//	}
+//
+//	/**
+//	 * @param inicio the inicio to set
+//	 */
+//	public void setInicio(Calendar inicio) {
+//		this.inicio = inicio;
+//	}
+//
+//	/**
+//	 * @return the fin
+//	 */
+//	public Calendar getFin() {
+//		return fin;
+//	}
+//
+//	/**
+//	 * @param fin the fin to set
+//	 */
+//	public void setFin(Calendar fin) {
+//		this.fin = fin;
+//	}
 
 	@Override
 	public int compareTo(Campania arg0) {

@@ -1,3 +1,4 @@
+package app;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.ArrayList;
@@ -23,8 +24,6 @@ import spark.ModelAndView;
 import spark.Request;
 import utils.DAH;
 
-import static spark.Spark.get;
-
 import com.heroku.sdk.jdbc.DatabaseUrl;
 import static javax.measure.unit.SI.KILOGRAM;
 
@@ -40,8 +39,13 @@ import models.config.*;
 public class Main {
 
 	public static void main(String[] args) {
-
-		port(Integer.valueOf(System.getenv("PORT")));
+		System.out.println("ejecutando Main.main()");
+		String port = System.getenv("PORT");
+    	if(port==null){
+    		System.out.println("PORT enviroment variable not set. Defaulting to 5000");
+    		port = "5000";
+    	}
+    	port(Integer.valueOf(port));
 		//port(Integer.valueOf("8080"));
 		staticFileLocation("/public");
 

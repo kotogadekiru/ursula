@@ -1,6 +1,6 @@
 {
-  "name": "Java Example",
-  "description": "A barebones Java app, which can easily be deployed to Heroku.",
+  "name": "UrsulaGIS",
+  "description": "Aplicacion para asisitir en el manejo de agricultura de presicion",
   "image": "heroku/java",
   "addons": [ "heroku-postgresql" ]
 }

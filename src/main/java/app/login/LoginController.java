@@ -12,6 +12,7 @@ public class LoginController {
         Map<String, Object> model = new HashMap<>();
         model.put("loggedOut", removeSessionAttrLoggedOut(request));
         model.put("loginRedirect", removeSessionAttrLoginRedirect(request));
+        model.put("msg", "un mensaje para $msg en layuot");
         return ViewUtil.render(request, model, Path.Template.LOGIN);
     };
 

@@ -11,12 +11,12 @@
 <div class="jumbotron text-center">
   <div class="container">
     <a href="/" class="lang-logo">
-      <img src="/lang-logo.png">
+      <img src="/1-512.png">
     </a>
     <h1>Ursula GIS</h1>
     <p>This is an aplication to clean an review harvest maps asociated to the Ursula ERP.</p>
-	 <a type="button" class="btn btn-lg btn-default" href="./hello"><span class="glyphicon glyphicon-flash"></span> Hello</a>
-    <a type="button" class="btn btn-lg btn-default" href="./ursula-geoserver"><span class="glyphicon glyphicon-flash"></span> Geoserver </a>
+	<a type="button" class="btn btn-lg btn-default" href="./login"><span class="glyphicon glyphicon-flash"></span> Login</a>
+    <a type="button" class="btn btn-lg btn-default" href="http://bit.ly/2n7HnNr"><span class="glyphicon glyphicon-flash"></span> Download Desktop App </a>
     <a type="button" class="btn btn-lg btn-primary" href="https://github.com/kotogadekiru/ursula"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
   </div>
 </div>
@@ -48,13 +48,7 @@
         </ul>
       </ul>
 
-      <h3><span class="glyphicon glyphicon-link"></span> Helpful Links</h3>
-      <ul>
-        <li><a href="https://www.heroku.com/home">Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/">Heroku Dev Center</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/getting-started-with-java">Getting Started with Java on Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/deploying-java">Deploying Java Apps on Heroku</a></li>
-      </ul>
+
     </div>
   </div> <!-- row -->
    <div class="alert alert-info text-center" role="alert">
