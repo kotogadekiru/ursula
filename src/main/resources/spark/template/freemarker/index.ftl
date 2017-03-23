@@ -29,7 +29,12 @@
     <div class="col-md-6">
       <h3><span class="glyphicon glyphicon-info-sign"></span> Noticias </h3>
       <ul>
-        <li>23 Marzo 2017: En la version 0.2.17.2 se descubrio que no se puede descargar los mapas de ndvi debido a que la aplicacion no tiene permiso de escritura en el directorio "Archivos de programas" o "Program Files" para resolver esto momentaneamente se puede mover la aplicacion de "Archivos de Programas" a "Program Data" o cualquier otro directorio que no este protegido por windows.</li>
+        <li>
+        23 Marzo 2017: En la version 0.2.17.2 se descubrio que no se puede descargar los mapas de ndvi 
+        debido a que la aplicacion no tiene permiso de escritura en el directorio "Archivos de programas" o 
+        "Program Files" para resolver esto momentaneamente se puede mover la aplicacion de "Archivos de Programas" a 
+        "Program Data" o cualquier otro directorio que no este protegido por windows.
+        </li>
    
       </ul>
     </div>
