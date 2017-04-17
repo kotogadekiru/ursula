@@ -30,6 +30,12 @@
       <h3><span class="glyphicon glyphicon-info-sign"></span> Noticias </h3>
       <ul>
         <li>
+        17 Abril 2017: En la version 0.2.17.2 se descubrio que no se puede descargar los mapas de ndvi 
+        de los meses de enero debido a un error de calculo de la fecha correspondiente al mes anterior. 
+        Calcula diciembre del mismo año en vez de diciembre del año anterior. 
+        Corregido en la version 0.2.18
+        </li>
+        <li>
         23 Marzo 2017: En la version 0.2.17.2 se descubrio que no se puede descargar los mapas de ndvi 
         debido a que la aplicacion no tiene permiso de escritura en el directorio "Archivos de programas" o 
         "Program Files" para resolver esto momentaneamente se puede mover la aplicacion de "Archivos de Programas" a 
