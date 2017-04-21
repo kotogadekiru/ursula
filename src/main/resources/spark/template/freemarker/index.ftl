@@ -17,7 +17,7 @@
     <p>This is an aplication to clean an review harvest maps asociated to the Ursula ERP.</p>
 	<a type="button" class="btn btn-lg btn-default" href="./login"><span class="glyphicon glyphicon-flash"></span> Login</a>
     <a type="button" class="btn btn-lg btn-default" href="http://bit.ly/2n7HnNr"><span class="glyphicon glyphicon-flash"></span> Download Desktop App </a>
-    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/kotogadekiru/WorldWindMarginMap"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
+    <a type="button" class="btn btn-lg btn-primary" href="http://github.com/kotogadekiru/WorldWindMarginMap"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
   </div>
 </div>
 <div class="container">
