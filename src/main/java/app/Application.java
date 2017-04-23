@@ -10,8 +10,12 @@ import static spark.Spark.*;
 import static spark.debug.DebugScreen.enableDebugScreen;
 //import static spark.debug.DebugScreen.*;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
 
 import app.user.UserDao;
 import app.util.Filters;
@@ -53,6 +57,9 @@ public class Application {
 		}, new FreeMarkerEngine());
         // Set up routes
        get(Path.Web.INDEX,          IndexController.serveIndexPage);
+       
+       
+
 //        get(Path.Web.BOOKS,          BookController.fetchAllBooks);
 //        get(Path.Web.ONE_BOOK,       BookController.fetchOneBook);
         get(Path.Web.LOGIN,          LoginController.serveLoginPage);

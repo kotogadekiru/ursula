@@ -14,8 +14,9 @@
       <img src="/1-512.png">
     </a>
     <h1>Ursula GIS</h1>
-    <p>Ursula GIS es para agricultores interesandos en agricultura de precisi&oacute;n. Permite ver, limpiar mapas de rendimiento y producir mapas de margenes economicos, recomendaciones de fertilizacion y mapas de balance de nutrientes en el suelo</p>
+    <p>Ursula GIS es para agricultores interesados en agricultura de precisi&oacute;n. Permite ver, limpiar mapas de rendimiento y producir mapas de margenes economicos, recomendaciones de fertilizacion y mapas de balance de nutrientes en el suelo. Adem&aacute;s es libre y gratuito!</p>
 	<a type="button" class="btn btn-lg btn-default" href="./login"><span class="glyphicon glyphicon-flash"></span> Login</a>
+	<a type="button" class="btn btn-lg btn-default" href="/docs/ModoDeUso_0.2.18.pdf"><span class="glyphicon glyphicon-flash"></span> Modo de uso</a>
     <a type="button" class="btn btn-lg btn-default" href="http://bit.ly/2pQKUiy"><span class="glyphicon glyphicon-flash"></span> Download Desktop App </a>
     <a type="button" class="btn btn-lg btn-primary" href="http://github.com/kotogadekiru/UrsulaGIS"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
   </div>
@@ -52,7 +53,8 @@
       <h3><span class="glyphicon glyphicon-link"></span> Proximos Desarrollos</h3>
       <ul>
         <li>Estimar rendimientos desde imagenes NDVI</li>
-        <li>Guardar e importar Polygonos</li>
+        <li>Obtener el histograma de imagenes NDVI</li>
+        <li>Guardar e importar Poligonos</li>
         <li>Guardar las labores cargadas en una base de datos</li>
         <!--ul>
           <li><code>git clone https://github.com/heroku/java-getting-started.git</code> - this will create a local copy of the source code for the app</li>
@@ -69,7 +71,5 @@
    Gracias por usar UrsulaGIS cualquier consulta enviar mail a <a href="mailto:kotogadekiru@gmail.com">kotogadekiru@gmail.com</a>
   </div>
 </div>
-
-
 </body>
 </html>
