@@ -14,31 +14,35 @@
       <img src="/1-512.png">
     </a>
     <h1>Ursula GIS</h1>
-    <p>This is an aplication to clean an review harvest maps asociated to the Ursula ERP.</p>
+    <p>Ursula GIS es para agricultores interesandos en agricultura de precisi&oacute;n. Permite ver, limpiar mapas de rendimiento y producir mapas de margenes economicos, recomendaciones de fertilizacion y mapas de balance de nutrientes en el suelo</p>
 	<a type="button" class="btn btn-lg btn-default" href="./login"><span class="glyphicon glyphicon-flash"></span> Login</a>
-    <a type="button" class="btn btn-lg btn-default" href="http://bit.ly/2n7HnNr"><span class="glyphicon glyphicon-flash"></span> Download Desktop App </a>
-    <a type="button" class="btn btn-lg btn-primary" href="http://github.com/kotogadekiru/WorldWindMarginMap"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
+    <a type="button" class="btn btn-lg btn-default" href="http://bit.ly/2pQKUiy"><span class="glyphicon glyphicon-flash"></span> Download Desktop App </a>
+    <a type="button" class="btn btn-lg btn-primary" href="http://github.com/kotogadekiru/UrsulaGIS"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
   </div>
 </div>
 <div class="container">
   <div class="alert alert-info text-center" role="alert">
-   Esta pagina es un trabajo en proceso y se ira actualizando a medida que crezca la aplicacion
+   La versi&oacute;n actual es la 0.2.18
   </div>
   <hr>
   <div class="row">
     <div class="col-md-6">
       <h3><span class="glyphicon glyphicon-info-sign"></span> Noticias </h3>
       <ul>
-        <li>
-        17 Abril 2017: En la version 0.2.17.2 se descubrio que no se puede descargar los mapas de ndvi 
-        de los meses de enero debido a un error de calculo de la fecha correspondiente al mes anterior. 
-        Calcula diciembre del mismo año en vez de diciembre del año anterior. 
-        Corregido en la version 0.2.18
+       <li>
+       	22 Abril 2017: Se libero la versi&oacute;n 0.2.18 que resuelve todos los bugs conocidos de las versiones anteriores y ademas implementa muchas funcionalidades nuevas.
+      	Algunas son: Generaci&oacute;n de capas de cosecha, siembra, fertilizaci&oacute;n y pulverizaci&oacute;n a partir de poligonos, tambien generar margenes economicos, balance de fosforo y recomendaci&oacute;n de fertilizaci&oacute;n fosforada.
         </li>
         <li>
-        23 Marzo 2017: En la version 0.2.17.2 se descubrio que no se puede descargar los mapas de ndvi 
-        debido a que la aplicacion no tiene permiso de escritura en el directorio "Archivos de programas" o 
-        "Program Files" para resolver esto momentaneamente se puede mover la aplicacion de "Archivos de Programas" a 
+        17 Abril 2017: En la versi&oacute;n 0.2.17.2 se descubrio que no se puede descargar los mapas de ndvi 
+        de los meses de enero debido a un error de calculo de la fecha correspondiente al mes anterior. 
+        Calcula diciembre del mismo a&ntilde;o en vez de diciembre del a&ntilde;o anterior. 
+        Corregido en la versi&oacute;n 0.2.18
+        </li>
+        <li>
+        23 Marzo 2017: En la versi&oacute;n 0.2.17.2 se descubrio que no se puede descargar los mapas de ndvi 
+        debido a que la aplicaci&oacute;n no tiene permiso de escritura en el directorio "Archivos de programas" o 
+        "Program Files" para resolver esto momentaneamente se puede mover la aplicaci&oacute;n de "Archivos de Programas" a 
         "Program Data" o cualquier otro directorio que no este protegido por windows.
         </li>
    
