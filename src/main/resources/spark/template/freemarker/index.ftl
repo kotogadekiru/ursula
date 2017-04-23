@@ -16,14 +16,15 @@
     <h1>Ursula GIS</h1>
     <p>Ursula GIS es para agricultores interesados en agricultura de precisi&oacute;n. Permite ver, limpiar mapas de rendimiento y producir mapas de margenes economicos, recomendaciones de fertilizacion y mapas de balance de nutrientes en el suelo. Adem&aacute;s es libre y gratuito!</p>
 	<a type="button" class="btn btn-lg btn-default" href="./login"><span class="glyphicon glyphicon-flash"></span> Login</a>
-	<a type="button" class="btn btn-lg btn-default" href="/docs/ModoDeUso_0.2.18.pdf"><span class="glyphicon glyphicon-flash"></span> Modo de uso</a>
     <a type="button" class="btn btn-lg btn-default" href="http://bit.ly/2pQKUiy"><span class="glyphicon glyphicon-flash"></span> Download Desktop App </a>
     <a type="button" class="btn btn-lg btn-primary" href="http://github.com/kotogadekiru/UrsulaGIS"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
   </div>
 </div>
 <div class="container">
   <div class="alert alert-info text-center" role="alert">
-   La versi&oacute;n actual es la 0.2.18
+  <a href="/docs/ModoDeUso_0.2.18.pdf"><span class="glyphicon glyphicon-flash"></span> Modo de uso</a>
+   <a href="/docs/ObtenerNDVI.pdf"><span class="glyphicon glyphicon-flash"></span> Obtener NDVI</a>
+    <a href="/docs/Instructivo_0.2.18.pdf"><span class="glyphicon glyphicon-flash"></span> Modo de uso</a>
   </div>
   <hr>
   <div class="row">
