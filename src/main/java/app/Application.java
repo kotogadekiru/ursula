@@ -50,24 +50,22 @@ public class Application {
         // Set up before-filters (called before each get/post)
         before("*",                  Filters.addTrailingSlashes);
         before("*",                  Filters.handleLocaleChange);
+        
 		get("/", (request, response) -> {
 			Map<String, Object> attributes = new HashMap<>();
 			attributes.put("title", "Ursula GIS");
 
 			return new ModelAndView(attributes, "index.ftl");
 		}, new FreeMarkerEngine());
-        // Set up routes
+       
        get(Path.Web.INDEX,          IndexController.serveIndexPage);
-       
-       
 
-//        get(Path.Web.BOOKS,          BookController.fetchAllBooks);
-//        get(Path.Web.ONE_BOOK,       BookController.fetchOneBook);
         get(Path.Web.LOGIN,          LoginController.serveLoginPage);
         post(Path.Web.LOGIN,         LoginController.handleLoginPost);
         post(Path.Web.LOGOUT,        LoginController.handleLogoutPost);
         
         get(Path.Web.UPDATE,        UpdateController.handleUpdateGet);
+        ApplicationExtras.registerExtras();
         get("*",                     ViewUtil.notFound);
 
         //Set up after-filters (called after each get/post)

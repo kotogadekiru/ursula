@@ -55,7 +55,7 @@ import java.util.Map;
 public class EntityManagerLoaderListener implements ServletContextListener {
 	private static final Logger logger = LoggerFactory.getLogger(EntityManagerLoaderListener.class);
 
-	private String DEFAULT_DB_URL = "jdbc:h2:~/test.db";
+	private String DEFAULT_DB_URL = "postgres://postgres:postgres@localhost:5432/ursulaGIS";//"jdbc:h2:~/test.db";
 	private static EntityManagerFactory emf;
 	private boolean pushAdditionalProperties = true;
 
@@ -71,6 +71,8 @@ public class EntityManagerLoaderListener implements ServletContextListener {
 		System.out.println("EntityManagerLoaderListener.contextInitialized()");
 		logger.debug("WebListener start entity manager");
 		String databaseUrl = System.getenv("DATABASE_URL");
+		logger.debug("database url ="+databaseUrl);
+		System.out.println("database url ="+databaseUrl);
 		//postgres://{user}:{password}@{hostname}:{port}/{database-name}
 		//set DATABASE_URL=postgres://postgres:admin@localhost:5432/ursulaGIS
 
@@ -105,10 +107,12 @@ public class EntityManagerLoaderListener implements ServletContextListener {
 				 */
 				
 
-			}catch(Exception e){e.printStackTrace();}
+			}catch(Exception e){e.printStackTrace();
+			logger.debug(e.toString());}
 		}
 		emf = Persistence.createEntityManagerFactory("ursulaGIS", properties);
 		System.out.println("Persistence.createEntityManagerFactory(\"default\", properties)->"+emf);
+		logger.debug("Persistence.createEntityManagerFactory(\"default\", properties)->"+emf);
 
 
 	}

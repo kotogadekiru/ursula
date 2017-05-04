@@ -1,78 +1,114 @@
 package app;
-import java.sql.*;
-import java.util.HashMap;
-import java.util.ArrayList;
+import static spark.Spark.get;
+import static spark.Spark.halt;
+import static spark.Spark.post;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.io.InputStream;
-import java.net.URI;
-import java.net.URISyntaxException;
-import javax.servlet.*;
-import javax.servlet.http.*;
-import java.io.*;
-import java.nio.file.*;
-import java.util.zip.ZipEntry; 
-import java.util.zip.ZipFile; 
-import java.util.zip.ZipOutputStream; 
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletException;
+import javax.servlet.http.Part;
 
-import static spark.Spark.*;
-import spark.template.freemarker.FreeMarkerEngine;
-import spark.ModelAndView;
-
-import spark.Request;
-import utils.DAH;
+import org.postgis.Geometry;
+import org.postgis.LinearRing;
+import org.postgis.PGgeometry;
+import org.postgis.Point;
+import org.postgis.Polygon;
 
 import com.heroku.sdk.jdbc.DatabaseUrl;
-import static javax.measure.unit.SI.KILOGRAM;
 
+import models.config.Establecimiento;
+import models.config.Lote;
+import spark.ModelAndView;
+import spark.Request;
+import spark.template.freemarker.FreeMarkerEngine;
+import utils.DAH;
 
-import javax.measure.quantity.Mass;
+public class ApplicationExtras {
+	public static void registerExtras() {
+		registerZipServices();
+		
+		get("/jpa/", (req, res) -> {
+			Connection connection = null;
+			Map<String, Object> attributes = new HashMap<>();
+			try {
 
-import org.jscience.physics.model.RelativisticModel;
-import org.jscience.physics.amount.Amount;
-import org.postgis.*;
+				ArrayList<String> output = new ArrayList<String>();
 
-import models.config.*;
+				Establecimiento e = new Establecimiento("La Ursula");
+				DAH.save(e);
+				output.add( "establecimiento: " + e);
+				Lote l = new Lote(e, "lote1");
+				output.add( "lote: " + l);
+				DAH.save(l);
+				List<Lote> lotes = DAH.getAllLotes();
+				output.add( "lotes: " + lotes);
+				output.add( "cantidad de lotes: " + lotes.size());
+				for(int i =0;i<lotes.size();i++){
+					Lote loteFor = lotes.get(i);
+					output.add( "lote "+i+": " + loteFor.getNombre());
+				}
 
-public class Main {
-
-	public static void main(String[] args) {
-		System.out.println("ejecutando Main.main()");
-		String port = System.getenv("PORT");
-    	if(port==null){
-    		System.out.println("PORT enviroment variable not set. Defaulting to 5000");
-    		port = "5000";
-    	}
-    	port(Integer.valueOf(port));
-		//port(Integer.valueOf("8080"));
-		staticFileLocation("/public");
-
-		//get("/hello", (req, res) -> "Hello World");
-		/*
-
-	    get("/hello", (req, res) -> {
-      RelativisticModel.select();
-      Amount<Mass> m = Amount.valueOf("12 GeV").to(KILOGRAM);
-      return "E=mc^2: 12 GeV = " + m.toString();
-    });
-
-		 */
-
-		get("/hello", (req, res) -> {
-			RelativisticModel.select();
-
-			String energy = System.getenv().get("ENERGY");
-			if(energy == null){
-				energy = "22 GeV";
+				attributes.put("message", "everithing ok! ");
+				attributes.put("results", output);
+				return new ModelAndView(attributes, "db.ftl");
+			} catch (Exception e) {
+				attributes.put("message", "There was an error: " + e);
+				return new ModelAndView(attributes, "error.ftl");
+			} finally {
+				if (connection != null) try{connection.close();} catch(SQLException e){}
 			}
+		}, new FreeMarkerEngine());
 
-			Amount<Mass> m = Amount.valueOf(energy).to(KILOGRAM);
-			//return "E=mc^2: " + energy + " = " + m.toString();
-			return "hello Ursula GIS actualizado";
-		});
+		get("/jdbc/", (req, res) -> {
+			Connection connection = null;
+			Map<String, Object> attributes = new HashMap<>();
+			try {
+				connection = DatabaseUrl.extract().getConnection();
+				Statement stmt = connection.createStatement();
+				stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
+				stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
+				ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
+				ArrayList<String> output = new ArrayList<String>();
+				while (rs.next()) {
+					output.add( "Read from DB: " + rs.getTimestamp("tick"));
+				}
+				attributes.put("message", "everithing ok! ");
+				attributes.put("results", output);
+				return new ModelAndView(attributes, "db.ftl");
+			} catch (Exception e) {
+				attributes.put("message", "There was an error: " + e);
+				e.printStackTrace();
+				return new ModelAndView(attributes, "error.ftl");
+			} finally {
+				if (connection != null) try{connection.close();} catch(SQLException e){}
+			}
+		}, new FreeMarkerEngine());
 
+		get("/gisJdbc/", (req, res) -> {
+			return gisJdbc();
+		}, new FreeMarkerEngine());
+	}
+
+	private static void registerZipServices() {
 		File uploadDir = new File("upload");
 		uploadDir.mkdir(); // create the upload directory if it doesn't exist
 		//staticFiles.externalLocation("upload");
@@ -124,81 +160,6 @@ public class Main {
 
 			    return null;
 		});
-
-		get("/", (request, response) -> {
-			Map<String, Object> attributes = new HashMap<>();
-			attributes.put("message", "Ursula GIS!");
-
-			return new ModelAndView(attributes, "index.ftl");
-		}, new FreeMarkerEngine());
-
-
-		get("/harvestShp", (request, response) -> {
-			Map<String, Object> attributes = new HashMap<>();
-			attributes.put("message", "Ursula !");
-
-			return new ModelAndView(attributes, "index.ftl");
-		}, new FreeMarkerEngine());
-
-		get("/jpa", (req, res) -> {
-			Connection connection = null;
-			Map<String, Object> attributes = new HashMap<>();
-			try {
-
-				ArrayList<String> output = new ArrayList<String>();
-
-				Establecimiento e = new Establecimiento("La Ursula");
-				DAH.save(e);
-				output.add( "establecimiento: " + e);
-				Lote l = new Lote(e, "lote1");
-				output.add( "lote: " + l);
-				DAH.save(l);
-				List<Lote> lotes = DAH.getAllLotes();
-				output.add( "lotes: " + lotes);
-				output.add( "cantidad de lotes: " + lotes.size());
-				for(int i =0;i<lotes.size();i++){
-					Lote loteFor = lotes.get(i);
-					output.add( "lote "+i+": " + loteFor.getNombre());
-				}
-
-
-				attributes.put("results", output);
-				return new ModelAndView(attributes, "db.ftl");
-			} catch (Exception e) {
-				attributes.put("message", "There was an error: " + e);
-				return new ModelAndView(attributes, "error.ftl");
-			} finally {
-				if (connection != null) try{connection.close();} catch(SQLException e){}
-			}
-		}, new FreeMarkerEngine());
-
-		get("/jdbc", (req, res) -> {
-			Connection connection = null;
-			Map<String, Object> attributes = new HashMap<>();
-			try {
-				connection = DatabaseUrl.extract().getConnection();
-				Statement stmt = connection.createStatement();
-				stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
-				stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-				ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
-				ArrayList<String> output = new ArrayList<String>();
-				while (rs.next()) {
-					output.add( "Read from DB: " + rs.getTimestamp("tick"));
-				}
-
-				attributes.put("results", output);
-				return new ModelAndView(attributes, "db.ftl");
-			} catch (Exception e) {
-				attributes.put("message", "There was an error: " + e);
-				return new ModelAndView(attributes, "error.ftl");
-			} finally {
-				if (connection != null) try{connection.close();} catch(SQLException e){}
-			}
-		}, new FreeMarkerEngine());
-
-		get("/gisJdbc", (req, res) -> {
-			return gisJdbc();
-		}, new FreeMarkerEngine());
 	}
 	
 	  // methods used for logging
@@ -226,13 +187,14 @@ public class Main {
 			 * must cast the connection to the pgsql-specific connection 
 			 * implementation before calling the addDataType() method. 
 			 */
-			((org.postgresql.Connection)conn).addDataType("geometry","org.postgis.PGgeometry");
-			((org.postgresql.Connection)conn).addDataType("box3d","org.postgis.PGbox3d");
+		
+			((org.postgresql.jdbc4.Jdbc4Connection)conn).addDataType("geometry","org.postgis.PGgeometry");
+			((org.postgresql.jdbc4.Jdbc4Connection)conn).addDataType("box3d","org.postgis.PGbox3d");
 			/* 
 			 * Create a statement and execute a select query. 
 			 */ 
 			Statement s = conn.createStatement(); 
-			ResultSet r = s.executeQuery("select ST_AsText(geom) as geom,id from geomtable"); 
+			ResultSet r = s.executeQuery("select ST_AsText(geom) as geom,id from geomtable"); //geomtable no existe
 			ArrayList<String> output = new ArrayList<String>();
 			while( r.next() ) { 
 				/* 
@@ -261,7 +223,7 @@ public class Main {
 			s.close(); 
 			conn.close(); 
 
-
+			attributes.put("message", "everithing ok!");
 			attributes.put("results", output);
 			return new ModelAndView(attributes, "db.ftl");
 		} catch (Exception e) {

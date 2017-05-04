@@ -18,8 +18,8 @@ public class UpdateController {
 	public static Route handleUpdateGet = (Request request, Response response) -> {
 		System.out.println("imprimiendo update.ftl");
         Map<String, Object> model = new HashMap<>();
-        model.put(LAS_VERSION_NUMBER,"0.2.19");
-        model.put(LAS_VERSION_URL, "http://bit.ly/2pGLXSE");
+        model.put(LAS_VERSION_NUMBER,"0.2.18");
+        model.put(LAS_VERSION_URL, "http://bit.ly/2pGLXSE");//fuente amazon
         model.put(MSG, "descargar msi para instalar desde cero");
         
         FreeMarkerEngine fm= new FreeMarkerEngine();
