@@ -13,10 +13,10 @@
     <a href="/" class="lang-logo">
       <img src="/1-512.png">
     </a>
-    <h1>Ursula GIS</h1>
+    <h1>${title}</h1>
     <p>Ursula GIS es para agricultores interesados en agricultura de precisi&oacute;n. Permite ver, limpiar mapas de rendimiento y producir mapas de margenes economicos, recomendaciones de fertilizacion y mapas de balance de nutrientes en el suelo. Adem&aacute;s es libre y gratuito!</p>
-	<a type="button" class="btn btn-lg btn-default" href="./login"><span class="glyphicon glyphicon-flash"></span> Login</a>
-    <a type="button" class="btn btn-lg btn-default" href="http://bit.ly/2pQKUiy"><span class="glyphicon glyphicon-flash"></span> Download Desktop App </a>
+	<!--a type="button" class="btn btn-lg btn-default" href="./login"><span class="glyphicon glyphicon-flash"></span> Login</a-->
+    <a type="button" class="btn btn-lg btn-default" href="http://bit.ly/2pGLXSE"><span class="glyphicon glyphicon-flash"></span> Download Desktop App </a>
     <a type="button" class="btn btn-lg btn-primary" href="http://github.com/kotogadekiru/UrsulaGIS"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
   </div>
 </div>
@@ -24,7 +24,7 @@
   <div class="alert alert-info text-center" role="alert">
   <a href="/docs/ModoDeUso_0.2.18.pdf"><span class="glyphicon glyphicon-flash"></span> Modo de uso</a>
    <a href="/docs/ObtenerNDVI.pdf"><span class="glyphicon glyphicon-flash"></span> Obtener NDVI</a>
-    <a href="/docs/Instructivo_0.2.18.pdf"><span class="glyphicon glyphicon-flash"></span> Modo de uso</a>
+    <a href="/docs/Instructivo_0.2.18.pdf"><span class="glyphicon glyphicon-flash"></span> Instructivo</a>
   </div>
   <hr>
   <div class="row">
@@ -53,16 +53,11 @@
     <div class="col-md-6">
       <h3><span class="glyphicon glyphicon-link"></span> Proximos Desarrollos</h3>
       <ul>
-        <li>Estimar rendimientos desde imagenes NDVI</li>
-        <li>Obtener el histograma de imagenes NDVI</li>
+        <li>Estimar rendimientos desde imagenes NDVI: Hecho v0.2.19</li>
+        <li>Obtener el histograma de imagenes NDVI: Hecho v0.2.19</li>
         <li>Guardar e importar Poligonos</li>
         <li>Guardar las labores cargadas en una base de datos</li>
-        <!--ul>
-          <li><code>git clone https://github.com/heroku/java-getting-started.git</code> - this will create a local copy of the source code for the app</li>
-          <li><code>cd java-getting-started</code> - change directory into the local source code repository</li>
-          <li><code>heroku git:remote -a &lt;your-app-name></code> - associate the Heroku app with the repository</li>
-          <li>You'll now be set up to run the app locally, or <a href="https://devcenter.heroku.com/articles/getting-started-with-java#push-local-changes">deploy changes</a> to Heroku</li>
-        </ul-->
+        <li>Permitir actualizar desde la aplicaci&oacuten</li>
       </ul>
 
 

@@ -4,6 +4,7 @@ import app.index.IndexController;
 //import app.book.*;
 //import app.index.*;
 import app.login.*;
+import app.update.UpdateController;
 import app.user.*;
 import app.util.*;
 import static spark.Spark.*;
@@ -51,7 +52,7 @@ public class Application {
         before("*",                  Filters.handleLocaleChange);
 		get("/", (request, response) -> {
 			Map<String, Object> attributes = new HashMap<>();
-			attributes.put("message", "Ursula GIS!");
+			attributes.put("title", "Ursula GIS");
 
 			return new ModelAndView(attributes, "index.ftl");
 		}, new FreeMarkerEngine());
@@ -65,6 +66,8 @@ public class Application {
         get(Path.Web.LOGIN,          LoginController.serveLoginPage);
         post(Path.Web.LOGIN,         LoginController.handleLoginPost);
         post(Path.Web.LOGOUT,        LoginController.handleLogoutPost);
+        
+        get(Path.Web.UPDATE,        UpdateController.handleUpdateGet);
         get("*",                     ViewUtil.notFound);
 
         //Set up after-filters (called after each get/post)
