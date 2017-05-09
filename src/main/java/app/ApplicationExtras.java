@@ -85,14 +85,7 @@ public class ApplicationExtras {
 				connection = DatabaseUrl.extract().getConnection();
 				Statement stmt = connection.createStatement();
 				stmt.executeUpdate("CREATE TABLE IF NOT EXISTS sessiones (tick timestamp, version varchar(255))");
-				String version = "unknown";
-				try{
-					version = req.queryParams("VERSION");
-				} catch(Exception e){
-					System.out.println("version unknown");
-				}
-			
-				stmt.executeUpdate("INSERT INTO sessiones VALUES (now(),'"+version+"')");
+				
 				ResultSet rs = stmt.executeQuery("SELECT tick,version FROM sessiones");
 				ArrayList<String> output = new ArrayList<String>();
 				int i=1;
