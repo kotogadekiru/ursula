@@ -41,8 +41,8 @@ public class UpdateController {
 			stmt.executeUpdate("CREATE TABLE IF NOT EXISTS sessiones (tick timestamp, version varchar(255))");
 			String version = "unknown";
 			try{
-				version = request.queryParams("VERSION");
-				if(version==null)version = "unknown";
+				version = request.queryParams("VERSION");//http://www.ursulagis.com/update?VERSION=0.2.20
+				if(version==null)version = "0.2.19?";
 			} catch(Exception e){
 				System.out.println("version unknown");
 			}
@@ -53,5 +53,4 @@ public class UpdateController {
 			if (connection != null) try{connection.close();} catch(SQLException e){}
 		}
 	}
-
 }

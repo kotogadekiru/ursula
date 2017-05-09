@@ -86,11 +86,15 @@ public class ApplicationExtras {
 				Statement stmt = connection.createStatement();
 				stmt.executeUpdate("CREATE TABLE IF NOT EXISTS sessiones (tick timestamp, version varchar(255))");
 				
-				ResultSet rs = stmt.executeQuery("SELECT tick,version FROM sessiones");
+				
+				ResultSet countRS = stmt.executeQuery("SELECT COUNT(*) FROM sessiones");
+				 countRS.next();
+				 int size = countRS.getInt(1);
+				ResultSet rs = stmt.executeQuery("SELECT tick,version FROM sessiones ORDER BY tick DESC");
 				ArrayList<String> output = new ArrayList<String>();
-				int i=1;
+				int i=0;
 				while (rs.next()) {
-					output.add( i+": " + rs.getTimestamp("tick")+" version: "+rs.getString("version"));
+					output.add( size-i+": " + rs.getTimestamp("tick")+" version: "+rs.getString("version"));
 					i++;
 				}
 				attributes.put("message", "everithing ok! ");
