@@ -42,6 +42,7 @@ public class UpdateController {
 			String version = "unknown";
 			try{
 				version = request.queryParams("VERSION");
+				if(version==null)version = "unknown";
 			} catch(Exception e){
 				System.out.println("version unknown");
 			}
