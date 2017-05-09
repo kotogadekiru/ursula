@@ -21,11 +21,11 @@ public class UpdateController {
         model.put(LAS_VERSION_NUMBER,"0.2.18");
         model.put(LAS_VERSION_URL, "http://bit.ly/2pGLXSE");//fuente amazon
         model.put(MSG, "descargar jar para actualizar");
-        return ViewUtil.render(request, model, Path.Template.UPDATE);
+       // return ViewUtil.render(request, model, Path.Template.UPDATE);//SEVERE: ResourceManager : unable to find resource 'update.ftl' in any resource loader.
         
-//        FreeMarkerEngine fm= new FreeMarkerEngine();
-//        
-//        return fm.render(new ModelAndView(model, Path.Template.UPDATE));
+        FreeMarkerEngine fm= new FreeMarkerEngine();
+        
+        return fm.render(new ModelAndView(model, Path.Template.UPDATE));
 		
     };
 

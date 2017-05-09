@@ -69,7 +69,7 @@ public class Application {
         get("*",                     ViewUtil.notFound);
 
         //Set up after-filters (called after each get/post)
-        after("*",                   Filters.addGzipHeader);
+       // after("*",                   Filters.addGzipHeader);
 
     }
 
