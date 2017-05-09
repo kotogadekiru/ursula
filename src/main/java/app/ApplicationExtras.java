@@ -78,18 +78,27 @@ public class ApplicationExtras {
 			}
 		}, new FreeMarkerEngine());
 
-		get("/jdbc/", (req, res) -> {
+		get("/sessiones/", (req, res) -> {
 			Connection connection = null;
 			Map<String, Object> attributes = new HashMap<>();
 			try {
 				connection = DatabaseUrl.extract().getConnection();
 				Statement stmt = connection.createStatement();
-				stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
-				stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-				ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
+				stmt.executeUpdate("CREATE TABLE IF NOT EXISTS sessiones (tick timestamp, version varchar(255))");
+				String version = "unknown";
+				try{
+					version = req.queryParams("VERSION");
+				} catch(Exception e){
+					System.out.println("version unknown");
+				}
+			
+				stmt.executeUpdate("INSERT INTO sessiones VALUES (now(),'"+version+"')");
+				ResultSet rs = stmt.executeQuery("SELECT tick,version FROM sessiones");
 				ArrayList<String> output = new ArrayList<String>();
+				int i=1;
 				while (rs.next()) {
-					output.add( "Read from DB: " + rs.getTimestamp("tick"));
+					output.add( i+": " + rs.getTimestamp("tick")+" version: "+rs.getString("version"));
+					i++;
 				}
 				attributes.put("message", "everithing ok! ");
 				attributes.put("results", output);

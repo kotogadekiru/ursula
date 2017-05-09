@@ -16,7 +16,7 @@
     <h1>${title}</h1>
     <p>Ursula GIS es para agricultores interesados en agricultura de precisi&oacute;n. Permite ver, limpiar mapas de rendimiento y producir mapas de margenes economicos, recomendaciones de fertilizacion y mapas de balance de nutrientes en el suelo. Adem&aacute;s es libre y gratuito!</p>
 	<!--a type="button" class="btn btn-lg btn-default" href="./login"><span class="glyphicon glyphicon-flash"></span> Login</a-->
-    <a type="button" class="btn btn-lg btn-default" href="http://bit.ly/2pGLXSE"><span class="glyphicon glyphicon-flash"></span> Download Desktop App </a>
+    <a type="button" class="btn btn-lg btn-default" href="http://bit.ly/2qjUiid"><span class="glyphicon glyphicon-flash"></span> Download Desktop App </a>
     <a type="button" class="btn btn-lg btn-primary" href="http://github.com/kotogadekiru/UrsulaGIS"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
   </div>
 </div>
@@ -32,6 +32,10 @@
     <div class="col-md-6">
       <h3><span class="glyphicon glyphicon-info-sign"></span> Noticias </h3>
       <ul>
+           <li>
+       	8 Mayo 2017: Se libero la versi&oacute;n 0.2.19 que permite exportar las recomendaciones de fertilizacion generadas, y demas labores. Tambien permite ver el histograma de los mapas de NDVI y convertir un mapa ndvi a una cosecha estimada. 
+       	Tambien se creo una funcionalidad para advertir al usuario que hay una version nueva disponible y permite actualizar la aplicacion automaticamente.
+        </li>
        <li>
        	22 Abril 2017: Se libero la versi&oacute;n 0.2.18 que resuelve todos los bugs conocidos de las versiones anteriores y ademas implementa muchas funcionalidades nuevas.
       	Algunas son: Generaci&oacute;n de capas de cosecha, siembra, fertilizaci&oacute;n y pulverizaci&oacute;n a partir de poligonos, tambien generar margenes economicos, balance de fosforo y recomendaci&oacute;n de fertilizaci&oacute;n fosforada.
@@ -54,11 +58,9 @@
     <div class="col-md-6">
       <h3><span class="glyphicon glyphicon-link"></span> Proximos Desarrollos</h3>
       <ul>
-        <li>Estimar rendimientos desde imagenes NDVI: Hecho v0.2.19</li>
-        <li>Obtener el histograma de imagenes NDVI: Hecho v0.2.19</li>
         <li>Guardar e importar Poligonos</li>
         <li>Guardar las labores cargadas en una base de datos</li>
-        <li>Permitir actualizar desde la aplicaci&oacuten</li>
+        <li>Mantener las labores cargadas entre sessiones</li>
       </ul>
 
 
