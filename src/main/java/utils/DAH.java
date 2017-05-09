@@ -1,26 +1,20 @@
 package utils;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+
+import org.mat.nounou.servlets.EntityManagerLoaderListener;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import models.config.Campania;
 import models.config.Cultivo;
 import models.config.Empresa;
 import models.config.Establecimiento;
 import models.config.Lote;
-
-import org.mat.nounou.servlets.EntityManagerLoaderListener;
-import org.mat.nounou.util.HerokuURLAnalyser;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class DAH {
 	private static final Logger logger = LoggerFactory.getLogger(DAH.class);
