@@ -22,17 +22,24 @@
 </div>
 <div class="container">
   <div class="alert alert-info text-center" role="alert">
+    <h2>Manuales</h2>
   <a href="/docs/ModoDeUso_0.2.18.pdf"><span class="glyphicon glyphicon-flash"></span> Modo de uso</a>
    <a href="/docs/ObtenerNDVI.pdf"><span class="glyphicon glyphicon-flash"></span> Obtener NDVI</a>
     <a href="/docs/Instructivo_0.2.18.pdf"><span class="glyphicon glyphicon-flash"></span> Instructivo</a>
   </div>
+  <div class="alert alert-info text-center" role="alert">
+    <h2>Tutoriales</h2>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/FTjohUDQ4EE?list=PLvNJi6IFrYVK5Ur5LjBa7T5S8MQ0Peo2_" frameborder="0" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/CV6VzV5GHF0?list=PLvNJi6IFrYVK5Ur5LjBa7T5S8MQ0Peo2_" frameborder="0" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/El13Ey7q5dM?list=PLvNJi6IFrYVK5Ur5LjBa7T5S8MQ0Peo2_" frameborder="0" allowfullscreen></iframe>
+  
+   </div>
   <hr>
   <div class="row">
     <div class="col-md-6">
       <h3><span class="glyphicon glyphicon-info-sign"></span> Noticias </h3>
       <ul>
-           <li>
+        <li>
        	8 Mayo 2017: Se libero la versi&oacute;n 0.2.19 que permite exportar las recomendaciones de fertilizacion generadas, y demas labores. Tambien permite ver el histograma de los mapas de NDVI y convertir un mapa ndvi a una cosecha estimada. 
        	Tambien se creo una funcionalidad para advertir al usuario que hay una version nueva disponible y permite actualizar la aplicacion automaticamente.
         </li>
