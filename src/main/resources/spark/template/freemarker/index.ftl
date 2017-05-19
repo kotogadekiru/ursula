@@ -22,11 +22,11 @@
   </div>
 </div>
 <div class="container">
-  <p>Ahora todos podemos ver y limpiar mapas de cosecha, descargar mapas de ndvi, generar mapas de potencial y recomendaciones de fertilización. Luego generar mapas de márgenes para auditar las decisiones económicas y mapas de balance de nutrientes para auditar las decisiones ambientales y mejorar las decisiones a futuro.
+  <p>Ahora todos podemos ver y limpiar mapas de cosecha, descargar mapas de ndvi, generar mapas de potencial y recomendaciones de fertilizaci&oacute;n. Luego generar mapas de m&aacute;rgenes para auditar las decisiones econ&oacute;micas y mapas de balance de nutrientes para auditar las decisiones ambientales y mejorar las decisiones a futuro.
  </p>
- <p>Mientas los proveedores de herramientas para agricultura de precisión sigan pretendiendo cobrar 5 dólares por hectárea para empezar a ver de que se trata el tema, la agricultura de precisión nunca va a ser la práctica generalizada que debería.
+ <p>Mientas los proveedores de herramientas para agricultura de precisi&oacute;n sigan pretendiendo cobrar 5 dólares por hect&aacute;rea para empezar a ver de que se trata el tema, la agricultura de precisi&oacute;n nunca va a ser la pr&aacute;ctica generalizada que deber&iacute;a.
 </p>
- <p>La agricultura de precisión o por ambientes no es volver al futuro. Es la misma agronomía de siempre con herramientas que nos permitan tomar más decisiones por hectárea. Es fácil es rápida, es conveniente y es aplicable acá y ahora. Ya no tenemos razones para no seguir haciéndolo.
+ <p>La agricultura de precisi&oacute;n o por ambientes no es volver al futuro. Es la misma agronom&iacute;a de siempre con herramientas que nos permitan tomar m&aacute;s decisiones por hect&aacute;rea. Es f&aacute;cil es r&aacute;pida, es conveniente y es aplicable ac&aacute; y ahora. Ya no tenemos razones para no seguir haci&eacute;ndolo.
 </p>
 </div>
 <div class="container">
