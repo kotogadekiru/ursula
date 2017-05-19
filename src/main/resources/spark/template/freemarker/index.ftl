@@ -16,9 +16,18 @@
     <h1>${title}</h1>
     <p>Ursula GIS es para agricultores interesados en agricultura de precisi&oacute;n. Permite ver, limpiar mapas de rendimiento y producir mapas de margenes economicos, recomendaciones de fertilizacion y mapas de balance de nutrientes en el suelo. Adem&aacute;s es libre y gratuito!</p>
 	<!--a type="button" class="btn btn-lg btn-default" href="./login"><span class="glyphicon glyphicon-flash"></span> Login</a-->
-    <a type="button" class="btn btn-lg btn-default" href="http://bit.ly/2qjUiid"><span class="glyphicon glyphicon-flash"></span> Download Desktop App </a>
+    <a type="button" class="btn btn-lg btn-default" href="http://bit.ly/2qjUiid"><span class="glyphicon glyphicon-flash"></span> Descargar Aplicacion para Windows 64 bits </a>
     <a type="button" class="btn btn-lg btn-primary" href="http://github.com/kotogadekiru/UrsulaGIS"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
+
   </div>
+</div>
+<div class="container">
+  <p>Ahora todos podemos ver y limpiar mapas de cosecha, descargar mapas de ndvi, generar mapas de potencial y recomendaciones de fertilización. Luego generar mapas de márgenes para auditar las decisiones económicas y mapas de balance de nutrientes para auditar las decisiones ambientales y mejorar las decisiones a futuro.
+ </p>
+ <p>Mientas los proveedores de herramientas para agricultura de precisión sigan pretendiendo cobrar 5 dólares por hectárea para empezar a ver de que se trata el tema, la agricultura de precisión nunca va a ser la práctica generalizada que debería.
+</p>
+ <p>La agricultura de precisión o por ambientes no es volver al futuro. Es la misma agronomía de siempre con herramientas que nos permitan tomar más decisiones por hectárea. Es fácil es rápida, es conveniente y es aplicable acá y ahora. Ya no tenemos razones para no seguir haciéndolo.
+</p>
 </div>
 <div class="container">
   <div class="alert alert-info text-center" role="alert">
