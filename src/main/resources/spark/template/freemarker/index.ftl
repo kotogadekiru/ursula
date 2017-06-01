@@ -74,9 +74,12 @@
     <div class="col-md-6">
       <h3><span class="glyphicon glyphicon-link"></span> Proximos Desarrollos</h3>
       <ul>
-        <li>Guardar e importar Poligonos</li>
+        <li>Guardar e importar Poligonos (En Desarrollo)</li>
         <li>Guardar las labores cargadas en una base de datos</li>
         <li>Mantener las labores cargadas entre sessiones</li>
+        <li>Generar Recomedaciones de Fertilizacion Nitrogenada (Suficiencia)</li>
+        <li>Generar Puntos de muestreo dirigido</li>
+        <li>Interpolar muestreo de suelos para obtener mapa de suelos</li>
       </ul>
 
 
