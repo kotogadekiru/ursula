@@ -23,7 +23,7 @@ public class UpdateController {
 		insertTick(request);		
 		//System.out.println("imprimiendo update.ftl");
 		Map<String, Object> model = new HashMap<>();
-		model.put(LAS_VERSION_NUMBER,"0.2.19");
+		model.put(LAS_VERSION_NUMBER,"0.2.20");
 		model.put(LAS_VERSION_URL, "http://bit.ly/2r029Nv");//fuente amazon
 		model.put(MSG, "descargar msi para actualizar");
 		// return ViewUtil.render(request, model, Path.Template.UPDATE);//SEVERE: ResourceManager : unable to find resource 'update.ftl' in any resource loader.
