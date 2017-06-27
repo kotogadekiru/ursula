@@ -11,7 +11,7 @@
   ga('send', 'pageview');
 
 </script>
-<script type='text/javascript'>
+<!--cript type='text/javascript'>
 window.__lo_site_id = 82140;
 
 	(function() {
@@ -20,5 +20,6 @@ window.__lo_site_id = 82140;
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wa, s);
 	  })();
 	</script>
-<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js">
+</script-->
 <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />

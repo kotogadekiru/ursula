@@ -14,7 +14,9 @@
       <img src="/1-512.png">
     </a>
     <h1>${title}</h1>
-    <p>Ursula GIS es para agricultores interesados en agricultura de precisi&oacute;n. Permite ver, limpiar mapas de rendimiento y producir mapas de margenes economicos, recomendaciones de fertilizacion y mapas de balance de nutrientes en el suelo. Adem&aacute;s es libre y gratuito!</p>
+    <p>Ursula GIS es para agricultores interesados en agricultura de precisi&oacute;n. Permite ver y limpiar mapas de rendimiento, producir mapas de m&aacute;rgenes econ&oacute;micos, recomendaciones de fertilizaci&oacute;n y mapas de balance de nutrientes en el suelo.</br>
+     Además es libre y gratuito!
+     </p>
 	<!--a type="button" class="btn btn-lg btn-default" href="./login"><span class="glyphicon glyphicon-flash"></span> Login</a-->
     <a type="button" class="btn btn-lg btn-default" href="http://bit.ly/2r029Nv"><span class="glyphicon glyphicon-flash"></span> Descargar Aplicacion para Windows 64 bits </a>
     <a type="button" class="btn btn-lg btn-primary" href="http://github.com/kotogadekiru/UrsulaGIS"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
@@ -80,7 +82,7 @@
         <li>Importar Poligonos</li>
         <li>Guardar las labores cargadas en una base de datos</li>
         <li>Mantener las labores cargadas entre sesiones</li>
-        <li>Generar Recomedaciones de Fertilizacion Nitrogenada (Suficiencia)</li>
+        <li>Generar Recomedaciones de Fertilizacion Nitrogenada (Suficiencia) Hecho 0.2.21</li>
         <li>Generar Puntos de muestreo dirigido</li>
         <li>Interpolar muestreo de suelos para obtener mapa de suelos</li>
       </ul>
