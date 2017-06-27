@@ -15,7 +15,7 @@
     </a>
     <h1>${title}</h1>
     <p>Ursula GIS es para agricultores interesados en agricultura de precisi&oacute;n. Permite ver y limpiar mapas de rendimiento, producir mapas de m&aacute;rgenes econ&oacute;micos, recomendaciones de fertilizaci&oacute;n y mapas de balance de nutrientes en el suelo.</br>
-     Además es libre y gratuito!
+     Adem&aacute;s es libre y gratuito!
      </p>
 	<!--a type="button" class="btn btn-lg btn-default" href="./login"><span class="glyphicon glyphicon-flash"></span> Login</a-->
     <a type="button" class="btn btn-lg btn-default" href="http://bit.ly/2r029Nv"><span class="glyphicon glyphicon-flash"></span> Descargar Aplicacion para Windows 64 bits </a>
