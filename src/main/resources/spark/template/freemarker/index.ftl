@@ -51,6 +51,8 @@
       <h3><span class="glyphicon glyphicon-info-sign"></span> Noticias </h3>
       <ul>
         <li>
+       	28 Julio 2017: De acuedo con la informaci&oacute;n de la agencia espacial europea se informa que las imagenes de NDVI solo estan disponibles hasta el 13 de julio 2017 (por temas de mantenimiento) y desde 23 Junio 2015. Mas informaci&oacute;n en   <a href="https://explorer.earthengine.google.com/#detail/COPERNICUS%2FS2">Earth Engine </a> y <a href="https://scihub.copernicus.eu/news/"> SciHub </a>   
+        <li>
        	5 Junio 2017: Se libero la versi&oacute;n 0.2.20 que permite guardar los poligonos marcados, los coeficientes de requerimiento de los diferentes cultivos, crear nuevos fertilizantes, semillas y cultivos. Tambien permite generar, importar y exportar mapas de suelo que se usaran para los balances de nutrientes y para las recomendaciones de N.
         </li>
         <li>
