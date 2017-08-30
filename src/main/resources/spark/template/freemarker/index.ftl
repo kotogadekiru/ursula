@@ -18,8 +18,9 @@
      Adem&aacute;s es libre y gratuito!
      </p>
 	<!--a type="button" class="btn btn-lg btn-default" href="./login"><span class="glyphicon glyphicon-flash"></span> Login</a-->
-    <a type="button" class="btn btn-lg btn-default" href="http://bit.ly/2r029Nv"><span class="glyphicon glyphicon-flash"></span> Descargar Aplicacion para Windows 64 bits </a>
-    <a type="button" class="btn btn-lg btn-primary" href="http://github.com/kotogadekiru/UrsulaGIS"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
+    <a type="button" class="btn btn-lg btn-default" href="http://bit.ly/2vKg0du"><span class="glyphicon glyphicon-download"></span> Descargar Aplicacion para Windows 64 bits </a>
+    <a type="button" class="btn btn-lg btn-default" href="http://bit.ly/2xNFWpR"><span class="glyphicon glyphicon-download"></span> Descargar Aplicacion para Windows 32 bits </a>
+    <a type="button" class="btn btn-lg btn-primary" href="http://github.com/kotogadekiru/UrsulaGIS"><span class="glyphicon glyphicon-flash"></span> Source on GitHub</a>
 
   </div>
 </div>
@@ -50,17 +51,20 @@
     <div class="col-md-6">
       <h3><span class="glyphicon glyphicon-info-sign"></span> Noticias </h3>
       <ul>
+      	<li>
+       	29 Agosto 2017: Se liber&oacute; la versi&oacute;n 0.2.22 para Windows de 64 bits y 32 bits que permite generar prescripciones de fertilizacion nitrogenada y descargar imagenes de NDVI clasificadas segun nube, cultivo o agua en superficie. El servicio de publicaci&oacute;n de imagenes NDVI sigue con demoras en origen pero se han podido descargar imagenes del 15 de agosto 2017.
+        <li>
         <li>
        	28 Julio 2017: De acuedo con la informaci&oacute;n de la agencia espacial europea se informa que las imagenes de NDVI solo estan disponibles hasta el 13 de julio 2017 (por temas de mantenimiento) y desde 23 Junio 2015. Mas informaci&oacute;n en   <a href="https://explorer.earthengine.google.com/#detail/COPERNICUS%2FS2">Earth Engine </a> y <a href="https://scihub.copernicus.eu/news/"> SciHub </a>   
         <li>
-       	5 Junio 2017: Se libero la versi&oacute;n 0.2.20 que permite guardar los poligonos marcados, los coeficientes de requerimiento de los diferentes cultivos, crear nuevos fertilizantes, semillas y cultivos. Tambien permite generar, importar y exportar mapas de suelo que se usaran para los balances de nutrientes y para las recomendaciones de N.
+       	5 Junio 2017: Se liber&oacute; la versi&oacute;n 0.2.20 que permite guardar los poligonos marcados, los coeficientes de requerimiento de los diferentes cultivos, crear nuevos fertilizantes, semillas y cultivos. Tambien permite generar, importar y exportar mapas de suelo que se usaran para los balances de nutrientes y para las recomendaciones de N.
         </li>
         <li>
-       	8 Mayo 2017: Se libero la versi&oacute;n 0.2.19 que permite exportar las recomendaciones de fertilizacion generadas, y demas labores. Tambien permite ver el histograma de los mapas de NDVI y convertir un mapa ndvi a una cosecha estimada. 
+       	8 Mayo 2017: Se liber&oacute; la versi&oacute;n 0.2.19 que permite exportar las recomendaciones de fertilizacion generadas, y demas labores. Tambien permite ver el histograma de los mapas de NDVI y convertir un mapa ndvi a una cosecha estimada. 
        	Tambien se creo una funcionalidad para advertir al usuario que hay una version nueva disponible y permite actualizar la aplicacion automaticamente.
         </li>
        <li>
-       	22 Abril 2017: Se libero la versi&oacute;n 0.2.18 que resuelve todos los bugs conocidos de las versiones anteriores y ademas implementa muchas funcionalidades nuevas.
+       	22 Abril 2017: Se liber&oacute; la versi&oacute;n 0.2.18 que resuelve todos los bugs conocidos de las versiones anteriores y ademas implementa muchas funcionalidades nuevas.
       	Algunas son: Generaci&oacute;n de capas de cosecha, siembra, fertilizaci&oacute;n y pulverizaci&oacute;n a partir de poligonos, tambien generar margenes economicos, balance de fosforo y recomendaci&oacute;n de fertilizaci&oacute;n fosforada.
         </li>
         <li>
@@ -84,9 +88,9 @@
         <li>Importar Poligonos</li>
         <li>Guardar las labores cargadas en una base de datos</li>
         <li>Mantener las labores cargadas entre sesiones</li>
-        <li>Generar Recomedaciones de Fertilizacion Nitrogenada (Suficiencia) Hecho 0.2.21</li>
         <li>Generar Puntos de muestreo dirigido</li>
         <li>Interpolar muestreo de suelos para obtener mapa de suelos</li>
+        <li>Importar mapas de cosecha con formato JohnDeere GS2</li>        
       </ul>
 
 

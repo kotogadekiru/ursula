@@ -23,9 +23,9 @@ public class UpdateController {
 		insertTick(request);		
 		//System.out.println("imprimiendo update.ftl");
 		Map<String, Object> model = new HashMap<>();
-		model.put(LAS_VERSION_NUMBER,"0.2.20");
-		model.put(LAS_VERSION_URL, "http://bit.ly/2r029Nv");//fuente amazon
-		model.put(MSG, "descargar msi para actualizar");
+		model.put(LAS_VERSION_NUMBER,"0.2.22");
+		model.put(LAS_VERSION_URL, "http://bit.ly/2vKg0du");//fuente amazon
+		model.put(MSG, "descargar msi 0.2.22x64 para actualizar");
 		// return ViewUtil.render(request, model, Path.Template.UPDATE);//SEVERE: ResourceManager : unable to find resource 'update.ftl' in any resource loader.
 
 		FreeMarkerEngine fm= new FreeMarkerEngine();
@@ -40,13 +40,17 @@ public class UpdateController {
 			Statement stmt = connection.createStatement();
 			stmt.executeUpdate("CREATE TABLE IF NOT EXISTS sessiones (tick timestamp, version varchar(255))");
 			String version = "unknown";
+			String user = "unknown";
 			try{
 				version = request.queryParams("VERSION");//http://www.ursulagis.com/update?VERSION=0.2.20
 				if(version==null)version = "0.2.19?";
+				
+				user = request.queryParams("USER");//http://www.ursulagis.com/update?VERSION=0.2.20
+				if(user==null)user = "unknown";
 			} catch(Exception e){
 				System.out.println("version unknown");
 			}
-			stmt.executeUpdate("INSERT INTO sessiones VALUES (now(),'"+version+"')");
+			stmt.executeUpdate("INSERT INTO sessiones VALUES (now(),'"+version+" / "+user+"')");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
