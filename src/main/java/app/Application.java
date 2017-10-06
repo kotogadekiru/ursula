@@ -65,7 +65,7 @@ public class Application {
         post(Path.Web.LOGOUT,        LoginController.handleLogoutPost);
         
         get(Path.Web.UPDATE,        UpdateController.handleUpdateGet);
-        ApplicationExtras.registerExtras();
+        ApplicationExtras.registerExtras(); //aca se configura /sessiones y /jdbc
         get("*",                     ViewUtil.notFound);
 
         //Set up after-filters (called after each get/post)

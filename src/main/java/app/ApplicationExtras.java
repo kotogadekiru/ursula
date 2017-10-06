@@ -88,7 +88,7 @@ public class ApplicationExtras {
 				Statement stmt = connection.createStatement();
 				stmt.executeUpdate("CREATE TABLE IF NOT EXISTS sessiones (tick timestamp, version varchar(255))");
 				
-				SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");//.format(myTimestamp);
+				SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");//.format(myTimestamp);
 				
 				ResultSet countRS = stmt.executeQuery("SELECT COUNT(*) FROM sessiones");
 				 countRS.next();
