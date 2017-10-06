@@ -16,6 +16,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -86,6 +88,7 @@ public class ApplicationExtras {
 				Statement stmt = connection.createStatement();
 				stmt.executeUpdate("CREATE TABLE IF NOT EXISTS sessiones (tick timestamp, version varchar(255))");
 				
+				SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");//.format(myTimestamp);
 				
 				ResultSet countRS = stmt.executeQuery("SELECT COUNT(*) FROM sessiones");
 				 countRS.next();
@@ -93,8 +96,12 @@ public class ApplicationExtras {
 				ResultSet rs = stmt.executeQuery("SELECT tick,version FROM sessiones ORDER BY tick DESC");
 				ArrayList<String> output = new ArrayList<String>();
 				int i=0;
-				while (rs.next()) {
-					output.add( size-i+": " + rs.getTimestamp("tick")+" version: "+rs.getString("version"));
+				Timestamp tick = null;
+				int millisIn3H = 3*60*60*1000;
+				while (rs.next()) {				
+					tick = rs.getTimestamp("tick");
+					tick.setTime(tick.getTime()-millisIn3H);
+					output.add( size-i+": " + df.format(tick)+" version: "+rs.getString("version"));
 					i++;
 				}
 				attributes.put("message", "everithing ok! ");
