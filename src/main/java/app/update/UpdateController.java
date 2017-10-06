@@ -41,16 +41,20 @@ public class UpdateController {
 			stmt.executeUpdate("CREATE TABLE IF NOT EXISTS sessiones (tick timestamp, version varchar(255))");
 			String version = "unknown";
 			String user = "unknown";
+			String ip = "unknown";
 			try{
 				version = request.queryParams("VERSION");//http://www.ursulagis.com/update?VERSION=0.2.20
 				if(version==null)version = "0.2.19?";
 				
 				user = request.queryParams("USER");//http://www.ursulagis.com/update?VERSION=0.2.20
 				if(user==null)user = "unknown";
+				
+				ip = request.ip();//request.queryParams("IP");//http://www.ursulagis.com/update?VERSION=0.2.20
+				if(ip==null)ip = "unknown";
 			} catch(Exception e){
-				System.out.println("version unknown");
+				System.out.println("ip unknown");
 			}
-			stmt.executeUpdate("INSERT INTO sessiones VALUES (now(),'"+version+" / "+user+"')");
+			stmt.executeUpdate("INSERT INTO sessiones VALUES (now(),'"+version+" / "+user+" @ "+ip+"')");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

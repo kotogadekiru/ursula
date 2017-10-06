@@ -53,7 +53,7 @@
       <ul>
       	<li>
        	29 Agosto 2017: Se liber&oacute; la versi&oacute;n 0.2.22 para Windows de 64 bits y 32 bits que permite generar prescripciones de fertilizacion nitrogenada y descargar imagenes de NDVI clasificadas segun nube, cultivo o agua en superficie. El servicio de publicaci&oacute;n de imagenes NDVI sigue con demoras en origen pero se han podido descargar imagenes del 15 de agosto 2017.
-        <li>
+        </li>
         <li>
        	28 Julio 2017: De acuedo con la informaci&oacute;n de la agencia espacial europea se informa que las imagenes de NDVI solo estan disponibles hasta el 13 de julio 2017 (por temas de mantenimiento) y desde 23 Junio 2015. Mas informaci&oacute;n en   <a href="https://explorer.earthengine.google.com/#detail/COPERNICUS%2FS2">Earth Engine </a> y <a href="https://scihub.copernicus.eu/news/"> SciHub </a>   
         <li>
