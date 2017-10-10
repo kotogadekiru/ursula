@@ -49,8 +49,13 @@ public class UpdateController {
 				user = request.queryParams("USER");//http://www.ursulagis.com/update?VERSION=0.2.20
 				if(user==null)user = "unknown";
 				
-				ip = request.queryParams("X-Forwarded-For");//request.queryParams("IP");//http://www.ursulagis.com/update?VERSION=0.2.20
-				if(ip==null)ip = "unknown";
+				ip = request.headers("X-FORWARDED-FOR");  
+			//	if (ipAddress == null) {  ("X-Forwarded-For");//request.queryParams("IP");//http://www.ursulagis.com/update?VERSION=0.2.20
+				if(ip==null){
+				//	ip = request.queryParams("fwd");
+					//if(ip==null)
+						ip = "unknown";
+				}
 			} catch(Exception e){
 				System.out.println("ip unknown");
 			}
