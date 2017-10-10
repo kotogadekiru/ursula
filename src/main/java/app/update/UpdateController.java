@@ -49,7 +49,7 @@ public class UpdateController {
 				user = request.queryParams("USER");//http://www.ursulagis.com/update?VERSION=0.2.20
 				if(user==null)user = "unknown";
 				
-				ip = request.ip();//request.queryParams("IP");//http://www.ursulagis.com/update?VERSION=0.2.20
+				ip = request.queryParams("X-Forwarded-For");//request.queryParams("IP");//http://www.ursulagis.com/update?VERSION=0.2.20
 				if(ip==null)ip = "unknown";
 			} catch(Exception e){
 				System.out.println("ip unknown");
