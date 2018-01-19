@@ -1,5 +1,5 @@
 {
   "lastVersionNumber":"${lasVersionNumber}",
-  "lastVersionURL":"${lasVersionURL}"
+  "lastVersionURL":"${lasVersionURL}",
    "mensaje":"${mensaje}"
 }
