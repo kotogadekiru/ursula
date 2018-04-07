@@ -96,10 +96,13 @@
     <div class="col-md-6">
       <h3><span class="glyphicon glyphicon-link"></span> Proximos Desarrollos</h3>
       <ul>
-        <li>Importar Poligonos</li>
+        <li>Importar Poligonos (Hecho 0.2.23)</li>
+        <li>Unir Poligonos (Hecho 0.2.23)</li>
+        <li>Intersectar Poligonos (Hecho 0.2.23)</li>
+        <li>Generar Puntos de muestreo dirigido (Hecho 0.2.23)</li>
         <li>Guardar las labores cargadas en una base de datos</li>
-        <li>Mantener las labores cargadas entre sesiones</li>
-        <li>Generar Puntos de muestreo dirigido</li>
+        <li>Generar Orden de compra a partir de las labores</li>
+        <li>Mantener las labores cargadas entre sesiones</li>       
         <li>Interpolar muestreo de suelos para obtener mapa de suelos</li>
         <li>Importar mapas de cosecha con formato JohnDeere GS2</li>        
       </ul>
@@ -109,6 +112,8 @@
   </div> <!-- row -->
    <div class="alert alert-info text-center" role="alert">
    Gracias por usar UrsulaGIS cualquier consulta enviar mail a <a href="mailto:kotogadekiru@gmail.com">kotogadekiru@gmail.com</a>
+   <li></li>
+   <li>El equipo de UrsulaGIS se mantiene activo gracias al entrenamiento de <a href="www.sasil-do.com">www.sasil-do.com</a></li>
   </div>
 </div>
 </body>
