@@ -37,15 +37,16 @@
 <div class="container">
   <p>Ahora todos podemos ver y limpiar mapas de cosecha, descargar mapas de ndvi, generar mapas de potencial y recomendaciones de fertilizaci&oacute;n. Luego generar mapas de m&aacute;rgenes para auditar las decisiones econ&oacute;micas y mapas de balance de nutrientes para auditar las decisiones ambientales y mejorar las decisiones a futuro.
  </p>
- <p>Mientas los proveedores de herramientas para agricultura de precisi&oacute;n sigan pretendiendo cobrar 5 d&oacute;lares por hect&aacute;rea para empezar a ver de que se trata el tema, la agricultura de precisi&oacute;n nunca va a ser la pr&aacute;ctica generalizada que deber&iacute;a.
-</p>
- <p>La agricultura de precisi&oacute;n o por ambientes no es volver al futuro. Es la misma agronom&iacute;a de siempre con herramientas que nos permitan tomar m&aacute;s decisiones por hect&aacute;rea. Es f&aacute;cil es r&aacute;pida, es conveniente y es aplicable ac&aacute; y ahora. Ya no tenemos razones para no seguir haci&eacute;ndolo.
+ <p>Creemos que la mejor forma de hacer de la agricultura de precisi&oacute;n una pr&aacute;ctica generalizada es brindando nuestra herramienta de forma gratuita.</p>
+ <!--p>Mientas los proveedores de herramientas para agricultura de precisi&oacute;n sigan pretendiendo cobrar 5 d&oacute;lares por hect&aacute;rea para empezar a ver de que se trata el tema, la agricultura de precisi&oacute;n nunca va a ser la pr&aacute;ctica generalizada que deber&iacute;a.
+</p-->
+ <p>La agricultura de precisi&oacute;n o por ambientes es la misma agronom&iacute;a de siempre con herramientas que nos permitan tomar m&aacute;s decisiones por hect&aacute;rea. Es f&aacute;cil es r&aacute;pida, es conveniente y es aplicable ac&aacute; y ahora. Ya no tenemos razones para no seguir haci&eacute;ndolo.
 </p>
 </div>
 <div class="container">
   <div class="alert alert-info text-center" role="alert">
     <h2>Manuales</h2>
-	<a href="/docs/AmbRefert.pdf"><span class="glyphicon glyphicon-flash"></span> Ambientación, Fertilización y Re-fertilización</a>
+	<a href="/docs/AmbRefert.pdf"><span class="glyphicon glyphicon-flash"></span> Ambientaci&oacute;n, Fertilizaci&oacute;n y Re-fertilizaci&oacute;n</a>
   <a href="/docs/ModoDeUso_0.2.18.pdf"><span class="glyphicon glyphicon-flash"></span> Modo de uso</a>
    <a href="/docs/ObtenerNDVI.pdf"><span class="glyphicon glyphicon-flash"></span> Obtener NDVI</a>
     <a href="/docs/Instructivo_0.2.18.pdf"><span class="glyphicon glyphicon-flash"></span> Instructivo</a>
@@ -96,9 +97,9 @@
     <div class="col-md-6">
       <h3><span class="glyphicon glyphicon-link"></span> Proximos Desarrollos</h3>
       <ul>
-        <li>Importar Poligonos (Hecho 0.2.23)</li>
-        <li>Unir Poligonos (Hecho 0.2.23)</li>
-        <li>Intersectar Poligonos (Hecho 0.2.23)</li>
+        <li>Importar Pol&iacute;gonos (Hecho 0.2.23)</li>
+        <li>Unir Pol&iacute;gonos (Hecho 0.2.23)</li>
+        <li>Intersectar Pol&iacute;gonos (Hecho 0.2.23)</li>
         <li>Generar Puntos de muestreo dirigido (Hecho 0.2.23)</li>
         <li>Guardar las labores cargadas en una base de datos</li>
         <li>Generar Orden de compra a partir de las labores</li>
