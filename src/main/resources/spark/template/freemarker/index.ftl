@@ -63,6 +63,9 @@
     <div class="col-md-6">
       <h3><span class="glyphicon glyphicon-info-sign"></span> Noticias </h3>
       <ul>
+        <li>
+       	19 Julio 2018: Se informa a los usuarios que las imagenes satelitales s&oacute;lo estan disponibles a partir del 23 de Junio del 2015.
+        </li>
       	<li>
        	29 Agosto 2017: Se liber&oacute; la versi&oacute;n 0.2.22 para Windows de 64 bits y 32 bits que permite generar prescripciones de fertilizacion nitrogenada y descargar imagenes de NDVI clasificadas segun nube, cultivo o agua en superficie. El servicio de publicaci&oacute;n de imagenes NDVI sigue con demoras en origen pero se han podido descargar imagenes del 15 de agosto 2017.
         </li>
