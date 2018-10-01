@@ -64,7 +64,7 @@
       <h3><span class="glyphicon glyphicon-info-sign"></span> Noticias </h3>
       <ul>
        	<li>
-       	01 Octubre 2018: e liber&oacute; la versi&oacute;n 0.2.23 para Windows de 64 bits y 32 bits que permite Importar Pol&iacute;gonos, Unir Pol&iacute;gonos, Intersectar Pol&iacute;gonos, Generar Puntos de muestreo dirigido, Generar SiembraFertilizada, Unir Cosechas Calibrandolas, y se corrigio el error que no permitia levantar los poligonos guardados previamente si la configuracion regional del sistema operativo no estaba en ingles.
+       	01 Octubre 2018: Se liber&oacute; la versi&oacute;n 0.2.23 para Windows de 64 bits y 32 bits que permite Importar Pol&iacute;gonos, Unir Pol&iacute;gonos, Intersectar Pol&iacute;gonos, Generar Puntos de muestreo dirigido, Generar SiembraFertilizada, Unir Cosechas Calibrandolas, y se corrigi&oacute el error que no permitia levantar los poligonos guardados previamente si la configuraci&oacuten regional del sistema operativo no estaba en ingles.
         </li>
         <li>
        	19 Julio 2018: Se informa a los usuarios que las imagenes satelitales s&oacute;lo estan disponibles a partir del 23 de Junio del 2015.
