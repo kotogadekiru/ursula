@@ -23,6 +23,29 @@ public class UpdateController {
 	private static final String MSG_PARAM = "mensaje";
 	private static final String LAS_VERSION_URL_PARAM = "lasVersionURL";
 	private static final String LAS_VERSION_NUMBER_PARAM = "lasVersionNumber";
+	
+	private static final String header = "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js\"></script>\n" + 
+			"<script>\n" + 
+			"  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\n" + 
+			"  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\n" + 
+			"  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\n" + 
+			"  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');\n" + 
+			"\n" + 
+			"  ga('create', 'UA-96140168-1', 'auto');\n" + 
+			"  ga('send', 'pageview');\n" + 
+			"\n" + 
+			"</script>\n" + 
+			"<!--cript type='text/javascript'>\n" + 
+			"window.__lo_site_id = 82140;\n" + 
+			"\n" + 
+			"	(function() {\n" + 
+			"		var wa = document.createElement('script'); wa.type = 'text/javascript'; wa.async = true;\n" + 
+			"		wa.src = 'https://d10lpsik1i8c69.cloudfront.net/w.js';\n" + 
+			"		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wa, s);\n" + 
+			"	  })();\n" + 
+			"	</script>\n" + 
+			"<script type=\"text/javascript\" src=\"//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js\">\n" + 
+			"</script-->";
 	public static Route handleUpdateGet = (Request request, Response response) -> {
 		insertTick(request);		
 		//System.out.println("imprimiendo update.ftl");
@@ -39,9 +62,9 @@ public class UpdateController {
 			Double ver=versionToDouble(userVersion);
 			//TODO controlar si la version del usuario es de 32 o 64bites
 			if(ver>= 0.223) {
-				model.put(MSG_PARAM, "Ud ya tiene la ultima versi&oacute;n instalada disponible");
+				model.put(MSG_PARAM, "<HTML><HEADER>"+header+"</HEADER>Ud ya tiene la ultima versi&oacute;n disponible instalada </HTML>");//XXX va a webView.getEngine().loadContent(message);
 			} else {
-				model.put(MSG_PARAM, "Hay una nueva version disponible para actualizar "+LAST_VERSION_NUMBER_VALUE);
+				model.put(MSG_PARAM, "Hay una nueva versi&oacute;n disponible para actualizar "+LAST_VERSION_NUMBER_VALUE);
 			}
 		}
 		
