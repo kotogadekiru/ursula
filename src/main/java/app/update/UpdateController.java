@@ -63,7 +63,7 @@ public class UpdateController {
 			//TODO controlar si la version del usuario es de 32 o 64bites
 			if(ver>= 0.223) {
 				model.put(MSG_PARAM, "<HTML><b>Ud ya tiene la ultima versi&oacute;n disponible instalada</b>"
-						+ "<li>ahora puede: </li>"
+						+ "Ahora puede: "
 						+ "<li>Importar Pol&iacute;gonos </li>"
 						+ "<li>Unir Pol&iacute;gonos </li>"
 						+ "<li>Intersectar Pol&iacute;gonos </li>"
