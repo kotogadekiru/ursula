@@ -18,8 +18,8 @@
      Adem&aacute;s es libre y gratuito!
      </p>
 	<!--a type="button" class="btn btn-lg btn-default" href="./login"><span class="glyphicon glyphicon-flash"></span> Login</a-->
-    <a type="button" class="btn btn-lg btn-default" href="http://bit.ly/2vKg0du"><span class="glyphicon glyphicon-download"></span> Descargar Aplicacion para Windows 64 bits </a>
-    <a type="button" class="btn btn-lg btn-default" href="http://bit.ly/2xNFWpR"><span class="glyphicon glyphicon-download"></span> Descargar Aplicacion para Windows 32 bits </a>
+    <a type="button" class="btn btn-lg btn-default" href="http://bit.ly/2DWPI15"><span class="glyphicon glyphicon-download"></span> Descargar Aplicacion para Windows 64 bits v:0.2.23 </a>
+    <a type="button" class="btn btn-lg btn-default" href="http://bit.ly/2QloXV0"><span class="glyphicon glyphicon-download"></span> Descargar Aplicacion para Windows 32 bits v:0.2.23 </a>
     <a type="button" class="btn btn-lg btn-primary" href="http://github.com/kotogadekiru/UrsulaGIS"><span class="glyphicon glyphicon-flash"></span> Source on GitHub</a>
 
   </div>

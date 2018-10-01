@@ -16,22 +16,54 @@ import com.heroku.sdk.jdbc.DatabaseUrl;
 
 public class UpdateController {
 
-	private static final String MSG = "mensaje";
-	private static final String LAS_VERSION_URL = "lasVersionURL";
-	private static final String LAS_VERSION_NUMBER = "lasVersionNumber";
+	private static final String LAS_VERSION_URL_VALUE ="http://bit.ly/2QloXV0";//<-0.2.23x32  || 0.2.22x64-> "http://bit.ly/2vKg0du";
+	private static final String LAST_VERSION_NUMBER_VALUE = "0.2.23";
+	private static final String USER_PARAM = "USER";
+	private static final String VERSION_PARAM = "VERSION";
+	private static final String MSG_PARAM = "mensaje";
+	private static final String LAS_VERSION_URL_PARAM = "lasVersionURL";
+	private static final String LAS_VERSION_NUMBER_PARAM = "lasVersionNumber";
 	public static Route handleUpdateGet = (Request request, Response response) -> {
 		insertTick(request);		
 		//System.out.println("imprimiendo update.ftl");
+		
+		
 		Map<String, Object> model = new HashMap<>();
-		model.put(LAS_VERSION_NUMBER,"0.2.22");
-		model.put(LAS_VERSION_URL, "http://bit.ly/2vKg0du");//fuente amazon
-		model.put(MSG, "descargar msi 0.2.22x64 para actualizar");
+		model.put(LAS_VERSION_NUMBER_PARAM,LAST_VERSION_NUMBER_VALUE);
+		model.put(LAS_VERSION_URL_PARAM, LAS_VERSION_URL_VALUE);//fuente amazon
+		model.put(MSG_PARAM, "Ud ya tiene la ultima versi&oacute;n instalada disponible");
 		// return ViewUtil.render(request, model, Path.Template.UPDATE);//SEVERE: ResourceManager : unable to find resource 'update.ftl' in any resource loader.
 
+		String userVersion = request.queryParams(VERSION_PARAM);
+		if(userVersion!=null) {
+			Double ver=versionToDouble(userVersion);
+			//TODO controlar si la version del usuario es de 32 o 64bites
+			if(ver>= 0.223) {
+				model.put(MSG_PARAM, "Ud ya tiene la ultima versi&oacute;n instalada disponible");
+			} else {
+				model.put(MSG_PARAM, "Hay una nueva version disponible para actualizar "+LAST_VERSION_NUMBER_VALUE);
+			}
+		}
+		
 		FreeMarkerEngine fm= new FreeMarkerEngine();
 
 		return fm.render(new ModelAndView(model, Path.Template.UPDATE));
 	};
+	
+	public static Double versionToDouble(String ver){
+		ver= ver.replace(" dev", "");
+		String[] v =ver.split("\\.");
+		String ret = v[0]+".";
+		for(int i=1;i<v.length;i++){
+			ret=ret.concat(v[i]);
+		}
+		try{
+			return Double.parseDouble(ret);
+		}catch(Exception e){
+			e.printStackTrace();
+			return -1.0;
+		}
+	}
 	
 	private static void insertTick(Request request) {
 		Connection connection = null;
@@ -43,10 +75,10 @@ public class UpdateController {
 			String user = "unknown";
 			String ip = "unknown";
 			try{
-				version = request.queryParams("VERSION");//http://www.ursulagis.com/update?VERSION=0.2.20
+				version = request.queryParams(VERSION_PARAM);//http://www.ursulagis.com/update?VERSION=0.2.20
 				if(version==null)version = "0.2.19?";
 				
-				user = request.queryParams("USER");//http://www.ursulagis.com/update?VERSION=0.2.20
+				user = request.queryParams(USER_PARAM);//http://www.ursulagis.com/update?VERSION=0.2.20
 				if(user==null)user = "unknown";
 				
 				ip = request.headers("X-FORWARDED-FOR");  
