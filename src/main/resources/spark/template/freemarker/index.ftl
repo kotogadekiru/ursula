@@ -63,6 +63,9 @@
     <div class="col-md-6">
       <h3><span class="glyphicon glyphicon-info-sign"></span> Noticias </h3>
       <ul>
+       	<li>
+       	01 Octubre 2018: e liber&oacute; la versi&oacute;n 0.2.23 para Windows de 64 bits y 32 bits que permite Importar Pol&iacute;gonos, Unir Pol&iacute;gonos, Intersectar Pol&iacute;gonos, Generar Puntos de muestreo dirigido, Generar SiembraFertilizada .
+        </li>
         <li>
        	19 Julio 2018: Se informa a los usuarios que las imagenes satelitales s&oacute;lo estan disponibles a partir del 23 de Junio del 2015.
         </li>
@@ -100,10 +103,10 @@
     <div class="col-md-6">
       <h3><span class="glyphicon glyphicon-link"></span> Proximos Desarrollos</h3>
       <ul>
-        <li>Importar Pol&iacute;gonos (Hecho 0.2.23)</li>
-        <li>Unir Pol&iacute;gonos (Hecho 0.2.23)</li>
-        <li>Intersectar Pol&iacute;gonos (Hecho 0.2.23)</li>
-        <li>Generar Puntos de muestreo dirigido (Hecho 0.2.23)</li>
+        <!--li>Importar Pol&iacute;gonos (Hecho 0.2.23)</li-->
+        <!--li>Unir Pol&iacute;gonos (Hecho 0.2.23)</li-->
+        <!--li>Intersectar Pol&iacute;gonos (Hecho 0.2.23)</li-->
+        <!--li>Generar Puntos de muestreo dirigido (Hecho 0.2.23)</li-->
         <li>Guardar las labores cargadas en una base de datos</li>
         <li>Generar Orden de compra a partir de las labores</li>
         <li>Mantener las labores cargadas entre sesiones</li>       
