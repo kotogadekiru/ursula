@@ -23,3 +23,4 @@ window.__lo_site_id = 82140;
 <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js">
 </script-->
 <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+<link rel="icon" href="/1-512.png">
