@@ -116,7 +116,9 @@
 
 
     </div>
-  </div> <!-- row -->
+    <!--a class="twitter-timeline" href="https://twitter.com/redbaron_ar?ref_src=twsrc%5Etfw">Tweets by redbaron_ar</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script-->
+ <a class="twitter-timeline" data-width="1000" data-height="600" data-theme="dark" href="https://twitter.com/redbaron_ar?ref_src=twsrc%5Etfw">Tweets by redbaron_ar</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+   </div> <!-- row -->
    <div class="alert alert-info text-center" role="alert">
    Gracias por usar UrsulaGIS cualquier consulta enviar mail a <a href="mailto:kotogadekiru@gmail.com">kotogadekiru@gmail.com</a>
    <li></li>
