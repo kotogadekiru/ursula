@@ -18,9 +18,15 @@
      Adem&aacute;s es libre y gratuito!
      </p>
 	<!--a type="button" class="btn btn-lg btn-default" href="./login"><span class="glyphicon glyphicon-flash"></span> Login</a-->
-    <a type="button" class="btn btn-lg btn-default" href="http://bit.ly/2DWPI15"><span class="glyphicon glyphicon-download"></span> Descargar Aplicacion para Windows 64 bits v:0.2.23 </a>
-    <a type="button" class="btn btn-lg btn-default" href="http://bit.ly/2QloXV0"><span class="glyphicon glyphicon-download"></span> Descargar Aplicacion para Windows 32 bits v:0.2.23 </a>
-    <a type="button" class="btn btn-lg btn-primary" href="http://github.com/kotogadekiru/UrsulaGIS"><span class="glyphicon glyphicon-flash"></span> Source on GitHub</a>
+    <a type="button" onclick="x64DownloadEvent()" class="btn btn-lg btn-default" href="http://bit.ly/2DWPI15"><span class="glyphicon glyphicon-download"></span> Descargar Aplicacion para Windows 64 bits v:0.2.23 </a>
+    <a type="button" onclick="x32DownloadEvent()" class="btn btn-lg btn-default" href="http://bit.ly/2QloXV0"><span class="glyphicon glyphicon-download"></span> Descargar Aplicacion para Windows 32 bits v:0.2.23 </a>
+    <a type="button" onclick="browseCodeEvent()" class="btn btn-lg btn-primary" href="http://github.com/kotogadekiru/UrsulaGIS"><span class="glyphicon glyphicon-flash"></span> Source on GitHub</a>
+
+<script>
+	function x64DownloadEvent() {	ga('send', 'event', 'x64', 'v0.2.23', 'download');}
+	function x32DownloadEvent() {	ga('send', 'event', 'x32', 'v0.2.23', 'download');}
+	function browseCodeEvent()  {	ga('send', 'event', 'browse code', 'v0.2.23', 'browse');}
+</script>
 
   </div>
   <br/>
