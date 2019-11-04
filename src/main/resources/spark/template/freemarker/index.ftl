@@ -18,11 +18,21 @@
      Adem&aacute;s es libre y gratuito!
      </p>
 	<!--a type="button" class="btn btn-lg btn-default" href="./login"><span class="glyphicon glyphicon-flash"></span> Login</a-->
-    <a type="button" onclick="x64DownloadEvent()" class="btn btn-lg btn-default" href="http://bit.ly/2DWPI15"><span class="glyphicon glyphicon-download"></span> Descargar Aplicacion para Windows 64 bits v:0.2.23 </a>
-    <a type="button" onclick="x32DownloadEvent()" class="btn btn-lg btn-default" href="http://bit.ly/2QloXV0"><span class="glyphicon glyphicon-download"></span> Descargar Aplicacion para Windows 32 bits v:0.2.23 </a>
+	
+    <a id="Win64Button" type="button" onclick="x64DownloadEvent()" class="btn btn-lg btn-default" href="http://bit.ly/2DWPI15"><span class="glyphicon glyphicon-download"></span> Descargar Aplicacion para Windows 64 bits v:0.2.23 </a>
+    <a id="Win32Button" type="button" onclick="x32DownloadEvent()" class="btn btn-lg btn-default" href="http://bit.ly/2QloXV0"><span class="glyphicon glyphicon-download"></span> Descargar Aplicacion para Windows 32 bits v:0.2.23 </a>
     <a type="button" onclick="browseCodeEvent()" class="btn btn-lg btn-primary" href="http://github.com/kotogadekiru/UrsulaGIS"><span class="glyphicon glyphicon-flash"></span> Source on GitHub</a>
 
 <script>
+	var Win32 = navigator.platform.indexOf("Win32");//codigo para mostrar solo el boton correcto
+    if(Win32) {
+           // document.getElementById('Win64Button').style.visibility = 'hidden';
+            document.getElementById('Win64Button').outerHTML = "";
+        } else {
+            //document.getElementById('Win32Button').style.visibility = 'hidden';
+           document.getElementById('Win32Button').outerHTML = "";
+        }
+
 	function x64DownloadEvent() {	ga('send', 'event', 'x64', 'v0.2.23', 'download');}
 	function x32DownloadEvent() {	ga('send', 'event', 'x32', 'v0.2.23', 'download');}
 	function browseCodeEvent()  {	ga('send', 'event', 'browse code', 'v0.2.23', 'browse');}

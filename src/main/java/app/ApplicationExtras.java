@@ -5,10 +5,17 @@ import static spark.Spark.post;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
@@ -47,6 +54,7 @@ import utils.DAH;
 public class ApplicationExtras {
 	public static void registerExtras() {
 		registerZipServices();
+		registerNdviServices();
 		
 		get("/jpa/", (req, res) -> {
 			Connection connection = null;
@@ -119,6 +127,72 @@ public class ApplicationExtras {
 		get("/gisJdbc/", (req, res) -> {
 			return gisJdbc();
 		}, new FreeMarkerEngine());
+	}
+	
+	private static void registerNdviServices() {
+		get("/api/ndvi/v4/SR/", (request, finalrresponse) -> "Pleas make a POST request!");
+		post("/api/ndvi/v4/SR/", (request, finalrresponse) -> {
+			//request.raw();
+			String reqBdy = request.body();
+			/*
+			 {
+    			"polygons": "[[[[-61.9146741,-33.6600295],[-61.9144856,-33.66025186],[-61.9051189,-33.67223672],[-61.9162476,-33.67825261],[-61.9171016,-33.67814203],[-61.9236927,-33.6698014],[-61.9237653,-33.66954039],[-61.9242583,-33.66878465],[-61.9240055,-33.66840019],[-61.9257235,-33.66634525],[-61.9219305,-33.66388454],[-61.9147469,-33.66000658],[-61.9146741,-33.6600295],[-61.9146741,-33.6600295]]]]",
+    			"end": "2018-03-29",
+    			"begin": "2018-03-01",
+    			"token": "pumaToken4D2"
+				}
+			 */
+			//TODO insertar en la base de datos los requests realizados
+			
+			System.out.println(reqBdy);
+			
+			System.out.println("redirecting /ndvi_v4_SR to gee-api-helper...");
+			
+			URL url = new URL("http://gee-api-helper.herokuapp.com/ndvi_v4_SR");
+			HttpURLConnection con = (HttpURLConnection) url.openConnection();
+			con.setRequestMethod("POST");
+			//con.setRequestMethod("GET");
+			con.setRequestProperty("Content-Type", "application/json; utf-8");
+			con.setRequestProperty("Accept", "application/json");
+			con.setDoOutput(true);
+			
+			try(OutputStream os = con.getOutputStream()) {
+			    byte[] input = reqBdy.getBytes("utf-8");
+			    os.write(input, 0, input.length);           
+			}
+			
+			StringBuilder response = new StringBuilder();
+			InputStream is = con.getInputStream();//aca se ejecuta el request
+			try(BufferedReader br = new BufferedReader(new InputStreamReader(is, "utf-8"))) {
+					    
+					    String responseLine = null;
+					    while ((responseLine = br.readLine()) != null) {
+					        response.append(responseLine.trim());
+					    }
+					    System.out.println(response.toString());
+					    br.close();
+					    con.disconnect();
+					}
+		
+		
+//			BufferedReader in = new BufferedReader(  new InputStreamReader(is));
+//			String inputLine;
+//			StringBuffer content = new StringBuffer();
+//			while ((inputLine = in.readLine()) != null) {
+//				content.append(inputLine);
+//			}
+//			in.close();
+//			con.disconnect();
+			
+			String body = response.toString();
+			System.out.println(body);
+//			
+			//OutputStreamWriter finalWriter = new OutputStreamWriter(finalrresponse.raw().getOutputStream());
+		//	finalWriter.write(body);
+			
+				
+			return body;
+		});
 	}
 
 	private static void registerZipServices() {
