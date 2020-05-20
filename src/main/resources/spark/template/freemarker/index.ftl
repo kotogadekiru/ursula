@@ -24,7 +24,7 @@
      </p>
 	<!--a type="button" class="btn btn-lg btn-default" href="./login"><span class="glyphicon glyphicon-flash"></span> Login</a-->
 	
-    <a id="Win64Button" type="button" onclick="x64DownloadEvent()" class="btn btn-lg btn-default" href="https://go.aws/3g7Yfgy"><span class="glyphicon glyphicon-download"></span> Descargar Aplicacion para Windows 64 bits v:0.2.23 </a>
+    <a id="Win64Button" type="button" onclick="x64DownloadEvent()" class="btn btn-lg btn-default" href="https://go.aws/3g7Yfgy"><span class="glyphicon glyphicon-download"></span> Descargar Aplicacion para Windows 64 bits v:0.2.24.2 </a>
     <a id="Win32Button" type="button" onclick="x32DownloadEvent()" class="btn btn-lg btn-default" href="http://bit.ly/2QloXV0"><span class="glyphicon glyphicon-download"></span> Descargar Aplicacion para Windows 32 bits v:0.2.23 </a>
     <a type="button" onclick="browseCodeEvent()" class="btn btn-lg btn-primary" href="http://github.com/kotogadekiru/UrsulaGIS"><span class="glyphicon glyphicon-flash"></span> Source on GitHub</a>
 
