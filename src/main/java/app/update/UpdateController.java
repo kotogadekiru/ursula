@@ -16,8 +16,8 @@ import com.heroku.sdk.jdbc.DatabaseUrl;
 
 public class UpdateController {
 
-	private static final String LAS_VERSION_URL_VALUE ="http://bit.ly/2QloXV0";//<-0.2.23x32  || 0.2.22x64-> "http://bit.ly/2vKg0du";
-	private static final String LAST_VERSION_NUMBER_VALUE = "0.2.23";
+	private static final String LAS_VERSION_URL_VALUE ="https://go.aws/3g7Yfgy";//<-0.2.23x32  || 0.2.22x64-> "http://bit.ly/2vKg0du";
+	private static final String LAST_VERSION_NUMBER_VALUE = "0.2.24.2";
 	private static final String USER_PARAM = "USER";
 	private static final String VERSION_PARAM = "VERSION";
 	private static final String MSG_PARAM = "mensaje";

@@ -25,7 +25,14 @@ public class RequestUtil {
     }
 
     public static String getSessionLocale(Request request) {
-        return request.session().attribute("locale");
+    	String locale ="en";
+    	try {
+    		locale = request.session().attribute("locale");
+    		
+    	}catch(Exception e) {
+    	//	e.printStackTrace();
+    	}
+        return locale;
     }
 
     public static String getSessionCurrentUser(Request request) {

@@ -2,11 +2,16 @@
 <html>
 <head>
   <#include "header.ftl">
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="350160857770-vubmb882vdfidm1fg9o5ovpqk32udsv7.apps.googleusercontent.com"><!-- localhost:5000-->
+  <!--meta name="google-signin-client_id" content="350160857770-vr2655pnvauhjsvbdsl7lcfgq1966cuf.apps.googleusercontent.com"--><!-- ursulagis.com-->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 
 <body>
 
   <#include "nav.ftl">
+  
 
 <div class="jumbotron text-center">
   <div class="container">
@@ -19,7 +24,7 @@
      </p>
 	<!--a type="button" class="btn btn-lg btn-default" href="./login"><span class="glyphicon glyphicon-flash"></span> Login</a-->
 	
-    <a id="Win64Button" type="button" onclick="x64DownloadEvent()" class="btn btn-lg btn-default" href="http://bit.ly/2DWPI15"><span class="glyphicon glyphicon-download"></span> Descargar Aplicacion para Windows 64 bits v:0.2.23 </a>
+    <a id="Win64Button" type="button" onclick="x64DownloadEvent()" class="btn btn-lg btn-default" href="https://go.aws/3g7Yfgy"><span class="glyphicon glyphicon-download"></span> Descargar Aplicacion para Windows 64 bits v:0.2.23 </a>
     <a id="Win32Button" type="button" onclick="x32DownloadEvent()" class="btn btn-lg btn-default" href="http://bit.ly/2QloXV0"><span class="glyphicon glyphicon-download"></span> Descargar Aplicacion para Windows 32 bits v:0.2.23 </a>
     <a type="button" onclick="browseCodeEvent()" class="btn btn-lg btn-primary" href="http://github.com/kotogadekiru/UrsulaGIS"><span class="glyphicon glyphicon-flash"></span> Source on GitHub</a>
 
@@ -38,6 +43,10 @@
 	function browseCodeEvent()  {	ga('send', 'event', 'browse code', 'v0.2.23', 'browse');}
 </script>
 
+
+  
+  
+    
   </div>
   <br/>
   <br/>

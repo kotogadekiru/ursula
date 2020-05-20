@@ -22,6 +22,7 @@ public class ViewUtil {
 
     public static Route notAcceptable = (Request request, Response response) -> {
         response.status(HttpStatus.NOT_ACCEPTABLE_406);
+        System.out.println("session locale: "+getSessionLocale(request));//TODO remover este println
         return new MessageBundle(getSessionLocale(request)).get("ERROR_406_NOT_ACCEPTABLE");
     };
 

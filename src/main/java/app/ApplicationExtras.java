@@ -148,7 +148,7 @@ public class ApplicationExtras {
 			
 			System.out.println("redirecting /ndvi_v4_SR to gee-api-helper...");
 			
-			URL url = new URL("http://gee-api-helper.herokuapp.com/ndvi_v4_SR");
+			URL url = new URL("http://gee-api-helper.herokuapp.com/ndvi_v4");
 			HttpURLConnection con = (HttpURLConnection) url.openConnection();
 			con.setRequestMethod("POST");
 			//con.setRequestMethod("GET");
