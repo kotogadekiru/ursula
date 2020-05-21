@@ -2,10 +2,12 @@
 <html>
 <head>
   <#include "header.ftl">
-  <meta name="google-signin-scope" content="profile email">
-  <meta name="google-signin-client_id" content="350160857770-vubmb882vdfidm1fg9o5ovpqk32udsv7.apps.googleusercontent.com"><!-- localhost:5000-->
-  <!--meta name="google-signin-client_id" content="350160857770-vr2655pnvauhjsvbdsl7lcfgq1966cuf.apps.googleusercontent.com"--><!-- ursulagis.com-->
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <meta name="google-signin-client_id" content="350160857770-vubmb882vdfidm1fg9o5ovpqk32udsv7.apps.googleusercontent.com"><!-- localhost:5000-->
+    <meta name="google-signin-cookiepolicy" content="single_host_origin">
+    <meta name="google-signin-scope" content="profile email">
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+  
 </head>
 
 <body>
@@ -88,6 +90,9 @@
     <div class="col-md-6">
       <h3><span class="glyphicon glyphicon-info-sign"></span> Noticias </h3>
       <ul>
+      	<li>
+       	20 Mayo 2020: Se liber&oacute; la versi&oacute;n 0.2.24.2 para Windows de 64 bits que permite manejo en portugues e ingles ademas de castellano. Ademas incorpora varias mejoras de interfaz grafica y permite descarga masiva de NDVI y toma en cuenta el contenido de materia organica al momento de calcular la recomendacion de fertilizacion Nitrogenada. Se incorpora tambien la primerva version de la generacion de orden de compra a partir de labores y recomendaciones.
+        </li>
        	<li>
        	01 Octubre 2018: Se liber&oacute; la versi&oacute;n 0.2.23 para Windows de 64 bits y 32 bits que permite Importar Pol&iacute;gonos, Unir Pol&iacute;gonos, Intersectar Pol&iacute;gonos, Generar Puntos de muestreo dirigido, Generar SiembraFertilizada, Unir Cosechas Calibrandolas, y se corrigi&oacute el error que no permitia levantar los poligonos guardados previamente si la configuraci&oacuten regional del sistema operativo no estaba en ingles.
         </li>
