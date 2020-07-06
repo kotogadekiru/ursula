@@ -1,6 +1,6 @@
 {
   "name": "UrsulaGIS",
-  "description": "Aplicacion para asisitir en el manejo de agricultura de presicion",
+  "description": "Aplicacion para asisitir en el manejo de agricultura de precision",
   "image": "heroku/java",
   "addons": [ "heroku-postgresql" ]
 }

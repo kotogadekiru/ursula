@@ -40,7 +40,7 @@
            document.getElementById('Win32Button').outerHTML = "";
         }
 
-	function x64DownloadEvent() {	ga('send', 'event', 'x64', 'v0.2.23', 'download');}
+	function x64DownloadEvent() {	ga('send', 'event', 'x64', 'v0.2.24.2', 'download');}
 	function x32DownloadEvent() {	ga('send', 'event', 'x32', 'v0.2.23', 'download');}
 	function browseCodeEvent()  {	ga('send', 'event', 'browse code', 'v0.2.23', 'browse');}
 </script>

@@ -1,0 +1,1 @@
+heroku local web -e .env

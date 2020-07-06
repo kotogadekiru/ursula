@@ -13,7 +13,12 @@ public class MessageBundle {
     }
 
     public String get(String message) {
-        return messages.getString(message);
+    	try {
+    		return messages.getString(message);	
+    	}catch (Exception e) {
+    		return message;
+    	}
+        
     }
 
     public final String get(final String key, final Object... args) {

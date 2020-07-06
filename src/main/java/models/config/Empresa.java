@@ -3,6 +3,8 @@ package models.config;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,11 +12,21 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-@Entity
+
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter(value = AccessLevel.PUBLIC)
+
+@Entity @Access(AccessType.FIELD)
 @NamedQueries({
 	@NamedQuery(name=Empresa.FIND_ALL, query="SELECT o FROM Empresa o"),
 	@NamedQuery(name=Empresa.FIND_NAME, query="SELECT o FROM Empresa o where o.nombre = :name") ,
 }) 
+
 public class Empresa implements Comparable<Empresa>{
 	 public static final String FIND_ALL = "Empresa.findAll";
 	 public static final String FIND_NAME = "Empresa.findName";

@@ -1,5 +1,9 @@
 package models.config;
 
+import java.util.List;
+
+import javax.persistence.Access;
+import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -7,13 +11,22 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
+@Getter
+@Setter(value = AccessLevel.PUBLIC)
+@ToString
 
-@Entity
+@Entity @Access(AccessType.FIELD)
+
 @NamedQueries({
 	@NamedQuery(name=Lote.FIND_ALL, query="SELECT o FROM Lote o"),
 	@NamedQuery(name=Lote.FIND_NAME, query="SELECT o FROM Lote o where o.nombre = :name") ,
 }) 
+
 public class Lote implements Comparable<Lote> {
 	public static final String FIND_ALL = "Lote.findAll";
 	public static final String FIND_NAME = "Lote.findNombre";

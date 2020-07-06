@@ -1,6 +1,7 @@
 package utils;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -15,6 +16,7 @@ import models.config.Cultivo;
 import models.config.Empresa;
 import models.config.Establecimiento;
 import models.config.Lote;
+import models.config.Recorrida;
 
 public class DAH {
 	private static final Logger logger = LoggerFactory.getLogger(DAH.class);
@@ -26,7 +28,6 @@ public class DAH {
 		if(em == null){
 			EntityManagerLoaderListener emll=new EntityManagerLoaderListener();
 			emll.contextInitialized(null);
-
 			em = EntityManagerLoaderListener.createEntityManager();
 		}
 		return em;
@@ -48,8 +49,6 @@ public class DAH {
 		return result;
 	}
 
-
-
 	public static List<Establecimiento> getAllEstablecimientos() {
 		return getAllEstablecimientos(em());
 	}
@@ -60,7 +59,42 @@ public class DAH {
 		List<Establecimiento> results = query.getResultList();
 		return results;
 	}
+	
+	public static Recorrida getRecorridaByName(String name) {
+		TypedQuery<Recorrida> query = em().createNamedQuery(Recorrida.FIND_NAME, Recorrida.class);
+		query.setParameter("name", name);
+		
+		// You have attempted to set a parameter at position 0 which does not exist in this query string 
+		//SELECT o FROM Recorrida o where o.nombre = :name.
+		Recorrida recorrida = query.getSingleResult();
+		return recorrida;
+	}
 
+	
+	public static boolean recorridaExists(String id) {
+		boolean ret=false;
+		Recorrida recorrida = em().find(Recorrida.class, id);
+		if(recorrida !=null) {
+			ret = true;
+		}
+		return ret;
+	}
+	
+
+	
+	public static List<Recorrida> getAllRecorridas() {
+		return getAllRecorridas(em());
+	}
+	
+	public static List<Recorrida> getAllRecorridas(EntityManager em) {		
+		TypedQuery<Recorrida> query = em.createNamedQuery(
+				Recorrida.FIND_ALL, Recorrida.class);
+		List<Recorrida> results = query.getResultList();
+		
+		logger.info("recorridas\n" + results.stream().map(Object::toString).collect(Collectors.joining(", ")));
+		return results;
+	}
+	
 	/**
 	 * 
 	 * @param periodoName
@@ -82,17 +116,12 @@ public class DAH {
 	}
 
 
-
 	/**
 	 * 
 	 * @param cultivoName
 	 * @return el producto existente en la base de datos o crea uno nuevo con ese nombre y lo devuelve
 	 */
 	public static Cultivo getCultivo(String cultivoName) {	
-//		EntityManager em = em();
-//		TypedQuery<Producto> query =
-//				em.createQuery("SELECT p FROM Producto p where p.nombre like '"+cultivoName+"'", Producto.class);
-
 		TypedQuery<Cultivo> query = em().createNamedQuery(
 				Cultivo.FIND_NAME, Cultivo.class);
 		query.setParameter(0, cultivoName);
@@ -118,39 +147,23 @@ public class DAH {
 		return getAllCultivos(em());
 	}
 	
-//	public static void getAllMargenCultivo(ObservableList<MargenCultivo> observable) {
-//		DAH.em();
-//		
-//		Query countQ = em.createQuery("SELECT COUNT(d) FROM MargenCultivo d");
-//		long count = (long)countQ.getSingleResult();
-//		int first =0;
-//		
-//		do{
-//			////tiene que ser un nuevo query porque sino cuando configuro el first se modifica en todas
-//			 TypedQuery<MargenCultivo> query =
-//				      em.createNamedQuery(MargenCultivo.FIND_ALL, MargenCultivo.class);
-//			 
-//
-//			query.setMaxResults(10);
-//			QueryService<MargenCultivo> service = new QueryService<MargenCultivo>();
-//			service.setQuery(query);
-//			service.setFirst(first);
-//			service.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
-//	            @Override
-//	            public void handle(WorkerStateEvent t) {	             
-//	            	Collection<? extends MargenCultivo>  value = (Collection<? extends MargenCultivo>) t.getSource().getValue();	            	
-//	            	observable.addAll( value);	            
-//	            }
-//	        });
-//			service.start();			
-//			first+=query.getMaxResults();			
-//		}while(first<count);
-//	}
-
-
+	
+	public static Object edit(Object entidad) {
+		Object ret =null;
+		EntityManager em = em();
+		if(DAH.transaction == null){
+			//	DAH.transaction = em.getTransaction();
+			em.getTransaction().begin();		
+			ret = em.merge(entidad);			
+			em.getTransaction().commit();
+		} else{
+			ret = em.merge(entidad);			
+		}
+		return ret;
+	}
+	
 
 	public static void save(Object entidad) {
-	
 		EntityManager em = em();
 		if(DAH.transaction == null){
 			//	DAH.transaction = em.getTransaction();
@@ -159,9 +172,7 @@ public class DAH {
 			em.getTransaction().commit();
 		} else{
 			em.persist(entidad);	
-
 		}
-
 	}
 	
 	public static void remove(Object entidad) {
@@ -173,12 +184,8 @@ public class DAH {
 			em.getTransaction().commit();
 		} else{
 			em.persist(entidad);	
-
 		}
-
 	}
-
-
 
 	public static List<Empresa> getAllEmpresas() {
 		TypedQuery<Empresa> query = em().createNamedQuery(
@@ -188,8 +195,6 @@ public class DAH {
 		return results;
 	}
 
-
-
 	public static List<Lote> getAllLotes() {
 		TypedQuery<Lote> query = em().createNamedQuery(
 				Lote.FIND_ALL, Lote.class);
@@ -197,8 +202,6 @@ public class DAH {
 		
 		return results;
 	}
-
-
 
 	public static List<Campania> getAllCampanias() {
 		TypedQuery<Campania> query = em().createNamedQuery(
@@ -209,86 +212,5 @@ public class DAH {
 	}
 
 
-
-
-
-
-	//	public static void main(String[] args) throws Exception {
-	//	       // Open a database connection
-	//     // (create a new database if it doesn't exist yet):
-	//     EntityManagerFactory emf =
-	//         Persistence.createEntityManagerFactory("$objectdb/db/monitores.odb");
-	//     
-	//   
-	//     EntityManager em = emf.createEntityManager();
-	//
-	//     // Store 1000 Point objects in the database:
-	//     em.getTransaction().begin();
-	//     
-	//     for (int i = 0; i < 10; i++) {
-	//         Producto p = new Producto("Producto "+i,100.0- i*10, i*10-100.0);
-	//         em.persist(p);
-	//     }
-	// 
-	//     
-	//     Establecimiento establecimiento = new Establecimiento("La Tablada");
-	//     em.persist(establecimiento);
-	//     
-	//     em.getTransaction().commit();
-	//     
-	//     //creo un monitor
-	//     em.getTransaction().begin();
-	//     Periodo periodo = new Periodo("01-07-2014");
-	//     em.persist(periodo);
-	//     
-	//     Monitor mon = new Monitor(establecimiento, periodo);
-	//     em.persist(mon);
-	//
-	//     List<Producto> productos = DAH.getAllProducts(em);
-	//     
-	//     for(Producto producto : productos){
-	//     	Suplementacion suple = new Suplementacion(mon, producto);//, 20.5, null, null, null, null);
-	//     	suple.setCantidadEstaca(20.5);
-	//     	suple.setCantidadRecria(39700.0);
-	//     	suple.setCantidadVo(0.0);
-	//     	suple.setCantidadVs(50.3);
-	//     	suple.setPrecio(3.25);   
-	//     	
-	//     	 em.persist(suple);
-	//     }
-	//     
-	//     
-	//     em.getTransaction().commit();
-	//
-	//     // Find the number of Point objects in the database:
-	//     Query q1 = em.createQuery("SELECT COUNT(p) FROM Suplementacion p");
-	//     //System.out.println("Cantidad de Suplementaciones: " + q1.getSingleResult());
-	//
-	//     // Find the average X value:
-	////     Query q2 = em.createQuery("SELECT AVG(p.x) FROM Establecimiento p");
-	////     System.out.println("Average X: " + q2.getSingleResult());
-	//
-	//     // Retrieve all the Point objects from the database:
-	//     TypedQuery<Establecimiento> query =
-	//         em.createQuery("SELECT p FROM Establecimiento p", Establecimiento.class);
-	//     
-	//     List<Establecimiento> results = query.getResultList();
-	//     for (Establecimiento p : results) {
-	//         System.out.println(p);
-	//     }
-	//
-	//     // Close the database connection:
-	//     em.close();
-	//     emf.close();
-	//
-	//	}
-
-	
-
-
-
-
-
-	
 
 }

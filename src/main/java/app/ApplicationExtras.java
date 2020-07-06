@@ -2,6 +2,9 @@ package app;
 import static spark.Spark.get;
 import static spark.Spark.halt;
 import static spark.Spark.post;
+import static spark.Spark.put;
+import static spark.Spark.delete;
+import static spark.Spark.options;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -44,6 +47,7 @@ import org.postgis.Polygon;
 
 import com.heroku.sdk.jdbc.DatabaseUrl;
 
+import app.recorrida.RecorridaController;
 import models.config.Establecimiento;
 import models.config.Lote;
 import spark.ModelAndView;
@@ -55,6 +59,7 @@ public class ApplicationExtras {
 	public static void registerExtras() {
 		registerZipServices();
 		registerNdviServices();
+		registerRecorridaServices();
 		
 		get("/jpa/", (req, res) -> {
 			Connection connection = null;
@@ -127,6 +132,25 @@ public class ApplicationExtras {
 		get("/gisJdbc/", (req, res) -> {
 			return gisJdbc();
 		}, new FreeMarkerEngine());
+	}
+	
+	
+	private static void registerRecorridaServices() {
+		get("/api/",(req,res)->"api");
+		
+		//get("/api/recorrida/list",RecorridaController.getRecorridas);
+		get("/api/recorrida/get/:name/",RecorridaController.getRecorridaByName);
+		//post("/api/recorrida/insert",RecorridaController.insertRecorrida);
+		//get("/api/recorrida/delete",RecorridaController.deleteRecorrida);
+		
+		//post("/api/recorridas", );
+	    get("/api/recorridas/", RecorridaController.getRecorridas);
+	    get("/api/recorridas/:id/",RecorridaController.getRecorridaById);
+	    put("/api/recorridas/:id/", RecorridaController.editRecorrida);//era put
+	    delete("/api/recorridas/:id/",RecorridaController.deleteRecorrida );//era delete
+	    options("/api/recorridas/:id/", RecorridaController.options);
+	    
+	    //options("/api/recorridas/:id", );
 	}
 	
 	private static void registerNdviServices() {
