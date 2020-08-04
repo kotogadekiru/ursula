@@ -6,10 +6,10 @@
 	<persistence-unit name="ursulaGIS" transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
-		<properties>
-			<property name="ssl" value="true" />
-			<property name="eclipselink.ddl-generation" value="create-tables" />
-			<property name="eclipselink.ddl-generation.output-mode"	value="database" />
-		</properties>
+<!-- 		<properties> -->
+<!-- 			<property name="ssl" value="true" /> -->
+<!-- 			<property name="eclipselink.ddl-generation" value="create-tables" /> -->
+<!-- 			<property name="eclipselink.ddl-generation.output-mode"	value="database" /> -->
+<!-- 		</properties> -->
 	</persistence-unit>
 </persistence>

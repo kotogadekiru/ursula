@@ -12,9 +12,11 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
 import org.eclipse.persistence.config.PersistenceUnitProperties;
+import org.eclipse.persistence.internal.jpa.deployment.JPAInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import org.eclipse.persistence.jpa.PersistenceProvider;
 import com.heroku.sdk.jdbc.DatabaseUrl;
 
 /**
@@ -88,7 +90,10 @@ public class EntityManagerLoaderListener implements ServletContextListener {
 		properties.put("javax.persistence.jdbc.user", userName );
 		properties.put("javax.persistence.jdbc.password", password );
 		properties.put("javax.persistence.jdbc.driver", "org.postgresql.Driver");
-		properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
+	//	properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
+		//PersistenceProvider prov = new PersistenceProvider();
+		//JPAInitializer initializer = prov.getInitializer("ursulaGIS", properties);
+		
 		emf = Persistence.createEntityManagerFactory("ursulaGIS", properties);
 		
 	}
