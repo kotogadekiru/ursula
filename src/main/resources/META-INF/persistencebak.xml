@@ -8,11 +8,8 @@
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
 <!-- 			<property name="ssl" value="false" /> -->
-			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/UrsulaGIS_OLD" />
-            
-            <property name="javax.persistence.jdbc.user" value="ursulaUser" />
-            <property name="javax.persistence.jdbc.password" value="ursulaPass" />
+			<property name="eclipselink.ddl-generation" value="create-tables" />
+			<property name="eclipselink.ddl-generation.output-mode"	value="database" />
 		</properties>
 	</persistence-unit>
 </persistence>

@@ -46,7 +46,7 @@ public class HerokuURLAnalyser {
             host = st.nextToken();
             port = st.nextToken();
             databaseName = st.nextToken();
-            jdbcUrl = String.format("jdbc:postgresql://%s:%s/%s?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory", host, port, databaseName);
+            jdbcUrl = String.format("jdbc:postgresql://%s:%s/%s", host, port, databaseName);//?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
         } else {
             //we consider the URL as valid jdbc
             dbVendor = st.nextToken();

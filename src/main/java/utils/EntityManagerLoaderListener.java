@@ -72,8 +72,8 @@ public class EntityManagerLoaderListener implements ServletContextListener {
 	/**
 	 * metodo que crea emf al inicializarse el context
 	 */
-	@Override
-	public void contextInitialized(ServletContextEvent event) {	
+	//@Override
+	public void contextInitializedNew(ServletContextEvent event) {	
 		logger.info("EntityManagerLoaderListener.contextInitialized()");
 		
 		String databaseUrl = System.getenv("DATABASE_URL");
@@ -98,8 +98,25 @@ public class EntityManagerLoaderListener implements ServletContextListener {
 		
 	}
 
+	@Override
+	public void contextInitialized(ServletContextEvent event) {
+		//contextInitializedOld(event);
+		//contextInitializedNew(event);
+		contextInitializedTest(event);
+	}
 	
-//	@Override
+	public void contextInitializedTest(ServletContextEvent event) {
+		String databaseUrl = System.getenv("DATABASE_URL");
+		HerokuURLAnalyser analyser = new HerokuURLAnalyser(databaseUrl);
+		Map<String, String> properties = new HashMap<String, String>();
+		logger.info("jdbcURL: "+ analyser.getJdbcURL());
+		properties.put("javax.persistence.jdbc.url", analyser.getJdbcURL());//"jdbc:postgresql://localhost:5432/UrsulaGIS2" );// cambiar databaseUrl por jdbcUrl? ;databaseUrl
+		properties.put("javax.persistence.jdbc.user", analyser.getUserName() );
+		properties.put("javax.persistence.jdbc.password", analyser.getPassword() );
+		emf = Persistence.createEntityManagerFactory("ursulaGIS",properties);
+		
+	}
+	
 	public void contextInitializedOld(ServletContextEvent event) {
 		logger.info("EntityManagerLoaderListener.contextInitialized()");
 		
@@ -126,7 +143,7 @@ public class EntityManagerLoaderListener implements ServletContextListener {
 //				
 				
 				
-				properties.put("sslmode", "prefer");
+				//properties.put("sslmode", "prefer");
 				properties.put(PersistenceUnitProperties.JDBC_URL,analyser.getJdbcURL());// ext.jdbcUrl());//
 				properties.put(PersistenceUnitProperties.JDBC_USER, analyser.getUserName());//ext.username());//
 				properties.put(PersistenceUnitProperties.JDBC_PASSWORD,analyser.getPassword());// ext.password());
