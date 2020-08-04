@@ -2,6 +2,7 @@ package utils;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -65,9 +66,36 @@ public class EntityManagerLoaderListener implements ServletContextListener {
 	public EntityManagerLoaderListener(boolean pushAdditionalProperties) {
 		this.pushAdditionalProperties = pushAdditionalProperties;
 	}
-
+	
+	/**
+	 * metodo que crea emf al inicializarse el context
+	 */
 	@Override
-	public void contextInitialized(ServletContextEvent event) {
+	public void contextInitialized(ServletContextEvent event) {	
+		logger.info("EntityManagerLoaderListener.contextInitialized()");
+		
+		String databaseUrl = System.getenv("DATABASE_URL");
+		StringTokenizer st = new StringTokenizer(databaseUrl, ":@/");
+		String dbVendor = st.nextToken(); //if DATABASE_URL is set
+		String userName = st.nextToken();
+		String password = st.nextToken();
+		String host = st.nextToken();
+		String port = st.nextToken();
+		String databaseName = st.nextToken();
+		String jdbcUrl = String.format("jdbc:postgresql://%s:%s/%s?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory", host, port, databaseName);
+		Map<String, String> properties = new HashMap<String, String>();
+		properties.put("javax.persistence.jdbc.url", databaseUrl );
+		properties.put("javax.persistence.jdbc.user", userName );
+		properties.put("javax.persistence.jdbc.password", password );
+		properties.put("javax.persistence.jdbc.driver", "org.postgresql.Driver");
+		properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
+		emf = Persistence.createEntityManagerFactory("default", properties);
+		
+	}
+
+	
+//	@Override
+	public void contextInitializedOld(ServletContextEvent event) {
 		logger.info("EntityManagerLoaderListener.contextInitialized()");
 		
 		String databaseUrl = System.getenv("DATABASE_URL");
