@@ -84,7 +84,7 @@ public class EntityManagerLoaderListener implements ServletContextListener {
 		String databaseName = st.nextToken();
 		String jdbcUrl = String.format("jdbc:postgresql://%s:%s/%s?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory", host, port, databaseName);
 		Map<String, String> properties = new HashMap<String, String>();
-		properties.put("javax.persistence.jdbc.url", databaseUrl );// cambiar databaseUrl por jdbcUrl?
+		properties.put("javax.persistence.jdbc.url", jdbcUrl );// cambiar databaseUrl por jdbcUrl? ;databaseUrl
 		properties.put("javax.persistence.jdbc.user", userName );
 		properties.put("javax.persistence.jdbc.password", password );
 		properties.put("javax.persistence.jdbc.driver", "org.postgresql.Driver");
