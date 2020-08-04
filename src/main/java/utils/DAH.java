@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
-import org.mat.nounou.servlets.EntityManagerLoaderListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,6 +28,7 @@ public class DAH {
 			EntityManagerLoaderListener emll=new EntityManagerLoaderListener();
 			emll.contextInitialized(null);
 			em = EntityManagerLoaderListener.createEntityManager();
+			logger.info("creando el entityManager");
 		}
 		return em;
 	}

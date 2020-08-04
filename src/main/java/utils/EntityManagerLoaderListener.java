@@ -1,4 +1,4 @@
-package org.mat.nounou.servlets;
+package utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -53,7 +53,8 @@ import com.heroku.sdk.jdbc.DatabaseUrl;
 public class EntityManagerLoaderListener implements ServletContextListener {
 	private static final Logger logger = LoggerFactory.getLogger(EntityManagerLoaderListener.class);
 
-	//private String DEFAULT_DB_URL = "postgres://postgres:dtc736@localhost:5432/UrsulaGIS";//"jdbc:h2:~/test.db";
+	//private String DEFAULT_DB_URL = "postgres://postgres:postgres@localhost:5432/ursulaGIS";//"jdbc:h2:~/test.db";
+	                              //"postgres://ursulaUser:ursulaPass@localhost:5432/UrsulaGIS";
 	private String DEFAULT_DB_URL = "postgres://ursulaUser:ursulaPass@localhost:5432/UrsulaGIS";
 	private static EntityManagerFactory emf;
 	private boolean pushAdditionalProperties = true;
@@ -67,32 +68,42 @@ public class EntityManagerLoaderListener implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
-		logger.debug("EntityManagerLoaderListener.contextInitialized()");
-		logger.debug("WebListener start entity manager");
+		logger.info("EntityManagerLoaderListener.contextInitialized()");
+		
 		String databaseUrl = System.getenv("DATABASE_URL");
-		logger.debug("database url ="+databaseUrl);
+		//logger.info("system database url ="+databaseUrl);
 		//System.out.println("database url ="+databaseUrl);
 		//postgres://{user}:{password}@{hostname}:{port}/{database-name}
 		//set DATABASE_URL=postgres://postgres:admin@localhost:5432/ursulaGIS
+		
+		//DatabaseUrl.extract().getConnection();
 
 		if (databaseUrl == null && pushAdditionalProperties) {
-			logger.debug("Use default config in persistence.xml with " + DEFAULT_DB_URL);
+			logger.info("Use default config in persistence.xml with " + DEFAULT_DB_URL);
 			databaseUrl = DEFAULT_DB_URL;
 		}
 		Map<String, String> properties = new HashMap<String, String>();
 		if (pushAdditionalProperties) {
-		//	HerokuURLAnalyser analyser = new HerokuURLAnalyser(databaseUrl);
+			HerokuURLAnalyser analyser = new HerokuURLAnalyser(databaseUrl);
 			try{
-				DatabaseUrl ext = DatabaseUrl.extract();
-				//.jdbcUrl()
-
-				//logger.debug("SET JDBC URL TO " + analyser.getJdbcURL());
-
-				properties.put(PersistenceUnitProperties.JDBC_URL, ext.jdbcUrl());//analyser.getJdbcURL());
-				properties.put(PersistenceUnitProperties.JDBC_USER, ext.username());//analyser.getUserName());
-				properties.put(PersistenceUnitProperties.JDBC_PASSWORD, ext.password());//analyser.getPassword());
-
+//				DatabaseUrl ext = DatabaseUrl.extract();
+//				properties.put(PersistenceUnitProperties.JDBC_URL,ext.jdbcUrl());// ext.jdbcUrl());//
+//				properties.put(PersistenceUnitProperties.JDBC_USER, ext.username());//ext.username());//
+//				properties.put(PersistenceUnitProperties.JDBC_PASSWORD,ext.password());// ext.password());
+//				
+				
+				
+				properties.put("sslmode", "prefer");
+				properties.put(PersistenceUnitProperties.JDBC_URL,analyser.getJdbcURL());// ext.jdbcUrl());//
+				properties.put(PersistenceUnitProperties.JDBC_USER, analyser.getUserName());//ext.username());//
+				properties.put(PersistenceUnitProperties.JDBC_PASSWORD,analyser.getPassword());// ext.password());
+				
+				//logger.info("PersistenceUnitProperties.VALIDATOR_FACTORY = "+PersistenceUnitProperties.VALIDATOR_FACTORY);
+				//javax.persistence.validation.factory
+				//properties.put("sslfactory","org.postgresql.ssl.NonValidatingFactory");
 				properties.put(PersistenceUnitProperties.JDBC_DRIVER, "org.postgresql.Driver");
+				
+				
 				
 				//properties.put("eclipselink.tenant-id", "HTHL");//property para soportar multi tenancy
 				//properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
@@ -109,11 +120,13 @@ public class EntityManagerLoaderListener implements ServletContextListener {
 				
 
 			}catch(Exception e){e.printStackTrace();
-			logger.debug(e.toString());}
+			logger.error(e.toString());}
 		}
 		emf = Persistence.createEntityManagerFactory("ursulaGIS", properties);
-		logger.debug("Persistence.createEntityManagerFactory(\"default\", properties)->"+emf);
-		logger.debug("Persistence.createEntityManagerFactory(\"default\", properties)->"+emf);
+		logger.info("Creatin emf with->"+emf.getProperties());
+		//Persistence.createEntityManagerFactory("ursulaGIS", properties)->
+		//{javax.persistence.jdbc.url=jdbc:postgresql://localhost:5432/ursulaGIS, javax.persistence.jdbc.user=postgres, javax.persistence.jdbc.password=postgres, javax.persistence.jdbc.driver=org.postgresql.Driver}
+//		logger.info("Persistence.createEntityManagerFactory(\"default\", properties)->"+emf);
 	}
 
 	/**
