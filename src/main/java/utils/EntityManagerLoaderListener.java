@@ -1,5 +1,7 @@
 package utils;
 
+import java.net.URISyntaxException;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -102,9 +104,10 @@ public class EntityManagerLoaderListener implements ServletContextListener {
 	public void contextInitialized(ServletContextEvent event) {
 		//contextInitializedOld(event);
 		//contextInitializedNew(event);
-		contextInitializedTest(event);
+		contextInitializedRemote(event);
 	}
 	
+	//esto funciona bien en local pero no en remoto porque da error de string decription
 	public void contextInitializedTest(ServletContextEvent event) {
 		String databaseUrl = System.getenv("DATABASE_URL");
 		HerokuURLAnalyser analyser = new HerokuURLAnalyser(databaseUrl);
@@ -114,6 +117,30 @@ public class EntityManagerLoaderListener implements ServletContextListener {
 		properties.put("javax.persistence.jdbc.user", analyser.getUserName() );
 		properties.put("javax.persistence.jdbc.password", analyser.getPassword() );
 		emf = Persistence.createEntityManagerFactory("ursulaGIS",properties);
+		
+	}
+	
+	public void contextInitializedRemote(ServletContextEvent event) {
+		
+		try {
+			DatabaseUrl databaseUrl = DatabaseUrl.extract();
+			//databaseUrl.
+			
+		//	String databaseUrl = System.getenv("DATABASE_URL");
+			//HerokuURLAnalyser analyser = new HerokuURLAnalyser(databaseUrl);
+			Map<String, String> properties = new HashMap<String, String>();
+			logger.info("jdbcURL: "+ databaseUrl.jdbcUrl());
+			properties.put("javax.persistence.jdbc.url", databaseUrl.jdbcUrl());//"jdbc:postgresql://localhost:5432/UrsulaGIS2" );// cambiar databaseUrl por jdbcUrl? ;databaseUrl
+			properties.put("javax.persistence.jdbc.user", databaseUrl.username() );
+			properties.put("javax.persistence.jdbc.password", databaseUrl.password() );
+			emf = Persistence.createEntityManagerFactory("ursulaGIS",properties);
+			
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		
 	}
 	
