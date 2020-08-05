@@ -44,6 +44,8 @@ import org.postgis.LinearRing;
 import org.postgis.PGgeometry;
 import org.postgis.Point;
 import org.postgis.Polygon;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.heroku.sdk.jdbc.DatabaseUrl;
 
@@ -54,18 +56,21 @@ import spark.ModelAndView;
 import spark.Request;
 import spark.template.freemarker.FreeMarkerEngine;
 import utils.DAH;
+import utils.EntityManagerLoaderListener;
 
 public class ApplicationExtras {
+	private static final Logger logger = LoggerFactory.getLogger(ApplicationExtras.class);
+	
 	public static void registerExtras() {
 		registerZipServices();
 		registerNdviServices();
 		registerRecorridaServices();
 		
 		get("/jpa/", (req, res) -> {
-			Connection connection = null;
+		
 			Map<String, Object> attributes = new HashMap<>();
 			try {
-
+				logger.info("agregando un establecimiento en /jpa");
 				ArrayList<String> output = new ArrayList<String>();
 
 				Establecimiento e = new Establecimiento("La Ursula");
@@ -89,7 +94,7 @@ public class ApplicationExtras {
 				attributes.put("message", "There was an error: " + e);
 				return new ModelAndView(attributes, "error.ftl");
 			} finally {
-				if (connection != null) try{connection.close();} catch(SQLException e){}
+				
 			}
 		}, new FreeMarkerEngine());
 

@@ -123,7 +123,7 @@ public class EntityManagerLoaderListener implements ServletContextListener {
 	public void contextInitializedRemote(ServletContextEvent event) {
 		
 		try {
-			DatabaseUrl databaseUrl = DatabaseUrl.extract();
+			DatabaseUrl databaseUrl = DatabaseUrl.extract(false);
 			//databaseUrl.
 			
 		//	String databaseUrl = System.getenv("DATABASE_URL");
