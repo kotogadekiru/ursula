@@ -62,15 +62,9 @@ public class UpdateController {
 			Double ver=versionToDouble(userVersion);
 			//TODO controlar si la version del usuario es de 32 o 64bites
 			if(ver>= 0.223) {
-				model.put(MSG_PARAM, "<HTML><b>Ud ya tiene la ultima versi&oacute;n disponible instalada</b>"
-						+ "<br>Ahora puede: "
-						+ "<li>Importar Pol&iacute;gonos </li>"
-						+ "<li>Unir Pol&iacute;gonos </li>"
-						+ "<li>Intersectar Pol&iacute;gonos </li>"
-						+ "<li>Generar Puntos de muestreo dirigido </li>"
-						+ "<li>Generar SiembraFertilizada </li>"
-						+ "<li>Unir Cosechas Calibrandolas </li>"
-						+ "<li>y se corrigi&oacute el error que no permitia levantar los poligonos guardados previamente si la configuraci&oacuten regional del sistema operativo no estaba en ingles.</li>"
+				model.put(MSG_PARAM, "<HTML>"
+						+ "<b>Lamentamos informar que por razones de fuerza mayor el servicio de descarga de imagenes NDVI esta suspendido temporalmente</b>"
+						+"<b>Agradecemos la comprension"
 						+ " </HTML>");//XXX va a webView.getEngine().loadContent(message);
 			} else {
 				model.put(MSG_PARAM, "Hay una nueva versi&oacute;n disponible para actualizar "+LAST_VERSION_NUMBER_VALUE);

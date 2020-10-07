@@ -11,7 +11,7 @@ public class IndexController {
     public static Route serveIndexPage = (Request request, Response response) -> {
         Map<String, Object> model = new HashMap<>();
        // model.put("users", userDao.getAllUserNames());
-        model.put("title", "Ursula GIS");
+        model.put("title", "UrsulaGIS");
         FreeMarkerEngine fm= new FreeMarkerEngine();
         return fm.render(new ModelAndView(model, "index.ftl"));
        // model.put("book", bookDao.getRandomBook());

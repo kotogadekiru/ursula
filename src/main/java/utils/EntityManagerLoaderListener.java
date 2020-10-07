@@ -122,24 +122,24 @@ public class EntityManagerLoaderListener implements ServletContextListener {
 	
 	public void contextInitializedRemote(ServletContextEvent event) {
 		
-		try {
-			DatabaseUrl databaseUrl = DatabaseUrl.extract(false);
+//		try {
+		//	DatabaseUrl databaseUrl = DatabaseUrl.extract(false);
 			//databaseUrl.
 			
 		//	String databaseUrl = System.getenv("DATABASE_URL");
 			//HerokuURLAnalyser analyser = new HerokuURLAnalyser(databaseUrl);
 			Map<String, String> properties = new HashMap<String, String>();
-			logger.info("jdbcURL: "+ databaseUrl.jdbcUrl());
+			//logger.info("jdbcURL: "+ databaseUrl.jdbcUrl());
 			properties.put("javax.persistence.jdbc.url", "jdbc:postgresql://ec2-54-235-193-0.compute-1.amazonaws.com:5432/d18da30584sone?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory");//"jdbc:postgresql://localhost:5432/UrsulaGIS2" );// cambiar databaseUrl por jdbcUrl? ;databaseUrl
 			properties.put("javax.persistence.jdbc.user","pajqghckztncso");
 			properties.put("javax.persistence.jdbc.password", "912701de8594f74c1001d4d1c3c32bdcd03079dd563b2eec37a12c17a4d86dab");
 			emf = Persistence.createEntityManagerFactory("ursulaGIS",properties);
 			
-		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+//		} catch (URISyntaxException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
 		
 		
 	}

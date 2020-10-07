@@ -3,9 +3,10 @@
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
  http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
-	<persistence-unit name="ursulaGIS" transaction-type="RESOURCE_LOCAL">
-		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+	<persistence-unit name="ursulaGIS" transaction-type="JTA">
+	<jta-data-source>jdbc/sample</jta-data-source>
+<!-- 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider> -->
+<!-- 		<exclude-unlisted-classes>false</exclude-unlisted-classes> -->
 		<properties>
 <!-- 			<property name="ssl" value="false" /> -->
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />

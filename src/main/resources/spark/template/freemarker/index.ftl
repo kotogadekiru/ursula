@@ -74,8 +74,8 @@
   <div class="alert alert-info text-center" role="alert">
     <h2>Manuales</h2>
 	<a href="/docs/AmbRefert.pdf"><span class="glyphicon glyphicon-flash"></span> Ambientaci&oacute;n, Fertilizaci&oacute;n y Re-fertilizaci&oacute;n</a>
-  <a href="/docs/ModoDeUso_0.2.18.pdf"><span class="glyphicon glyphicon-flash"></span> Modo de uso</a>
-   <a href="/docs/ObtenerNDVI.pdf"><span class="glyphicon glyphicon-flash"></span> Obtener NDVI</a>
+  	<a href="/docs/ModoDeUso_0.2.18.pdf"><span class="glyphicon glyphicon-flash"></span> Modo de uso</a>
+   	<a href="/docs/ObtenerNDVI.pdf"><span class="glyphicon glyphicon-flash"></span> Obtener NDVI</a>
     <a href="/docs/Instructivo_0.2.18.pdf"><span class="glyphicon glyphicon-flash"></span> Instructivo</a>
   </div>
   <div class="alert alert-info text-center" role="alert">
