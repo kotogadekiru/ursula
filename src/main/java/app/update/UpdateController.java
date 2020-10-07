@@ -63,8 +63,9 @@ public class UpdateController {
 			//TODO controlar si la version del usuario es de 32 o 64bites
 			if(ver>= 0.223) {
 				model.put(MSG_PARAM, "<HTML>"
-						+ "<b>Lamentamos informar que por razones de fuerza mayor el servicio de descarga de imagenes NDVI esta suspendido temporalmente</b>"
-						+"<b>Agradecemos la comprension</b>"
+						+ "<b>Aviso:</b>"
+						+ "<br>Lamentamos informar que por razones de fuerza mayor el servicio de descarga de imagenes NDVI esta suspendido temporalmente</b>"
+						+"<br>Agradecemos la comprension"
 						+ " </HTML>");//XXX va a webView.getEngine().loadContent(message);
 			} else {
 				model.put(MSG_PARAM, "Hay una nueva versi&oacute;n disponible para actualizar "+LAST_VERSION_NUMBER_VALUE);
