@@ -16,8 +16,8 @@ import com.heroku.sdk.jdbc.DatabaseUrl;
 
 public class UpdateController {
 
-	private static final String LAS_VERSION_URL_VALUE ="https://go.aws/3g7Yfgy";//<-0.2.23x32  || 0.2.22x64-> "http://bit.ly/2vKg0du";
-	private static final String LAST_VERSION_NUMBER_VALUE = "0.2.24.2";
+	private static final String LAS_VERSION_URL_VALUE ="https://bit.ly/3nm5d49";//<-0.2.23x32  || 0.2.22x64-> "http://bit.ly/2vKg0du";
+	private static final String LAST_VERSION_NUMBER_VALUE = "0.2.26";
 	private static final String USER_PARAM = "USER";
 	private static final String VERSION_PARAM = "VERSION";
 	private static final String MSG_PARAM = "mensaje";
@@ -61,13 +61,21 @@ public class UpdateController {
 		if(userVersion!=null) {
 			Double ver=versionToDouble(userVersion);
 			//TODO controlar si la version del usuario es de 32 o 64bites
-			if(ver>= 0.223) {
+			if(versionToDouble(LAST_VERSION_NUMBER_VALUE).equals(ver)) {
 				model.put(MSG_PARAM, "<HTML>"
 						+ "<b>Aviso:</b>"
-						+ "<br>Lamentamos informar que por razones de fuerza mayor el servicio de descarga de imagenes NDVI esta suspendido temporalmente</b>"
-						+"<br>Agradecemos la comprension"
+						+ "<br></b>"
+						+"<ul>"
+						+"<li>Ud esta ejecutando la ultima version disponible de UrsulaGIS</li>"  
+						+"</ul>"        
 						+ " </HTML>");//XXX va a webView.getEngine().loadContent(message);
-			} else {
+			}else if(ver>= 0.223) {
+				model.put(MSG_PARAM, "<HTML>"
+						+ "<b>Aviso:</b>"
+						+ "<br>Ya esta disponible para descargar la version 0.2.26 de UrsulaGIS que permite abrir las imagenes ndvi en el nuevo formato</b>"
+						+"<br>visite <a href=\"www.ursulagis.com/\" rel=\"nofollow\" target=\"_blank\" title=\"W3C HTML validator\">www.ursulagis.com</a> para mas informaci&oacute;n"
+						+ " </HTML>");//XXX va a webView.getEngine().loadContent(message);
+			} else {//antes de la 0.223 no traia el parametro de la version
 				model.put(MSG_PARAM, "Hay una nueva versi&oacute;n disponible para actualizar "+LAST_VERSION_NUMBER_VALUE);
 			}
 		}

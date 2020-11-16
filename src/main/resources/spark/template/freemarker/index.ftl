@@ -18,7 +18,7 @@
 <div class="jumbotron text-center">
   <div class="container">
     <a href="/" class="lang-logo">
-      <img src="/1-512.png">
+      <img src="/ursula_logo_2020.png">
     </a>
     <h1>${title}</h1>
     <p>Ursula GIS es para agricultores interesados en agricultura de precisi&oacute;n. Permite ver y limpiar mapas de rendimiento, producir mapas de m&aacute;rgenes econ&oacute;micos, recomendaciones de fertilizaci&oacute;n y mapas de balance de nutrientes en el suelo.</br>
@@ -26,7 +26,7 @@
      </p>
 	<!--a type="button" class="btn btn-lg btn-default" href="./login"><span class="glyphicon glyphicon-flash"></span> Login</a-->
 	
-    <a id="Win64Button" type="button" onclick="x64DownloadEvent()" class="btn btn-lg btn-default" href="https://go.aws/3g7Yfgy"><span class="glyphicon glyphicon-download"></span> Descargar Aplicacion para Windows 64 bits v:0.2.24.2 </a>
+    <a id="Win64Button" type="button" onclick="x64DownloadEvent()" class="btn btn-lg btn-default" href="https://bit.ly/3nm5d49"><span class="glyphicon glyphicon-download"></span> Descargar Aplicacion para Windows 64 bits v:0.2.26 </a>
     <a id="Win32Button" type="button" onclick="x32DownloadEvent()" class="btn btn-lg btn-default" href="http://bit.ly/2QloXV0"><span class="glyphicon glyphicon-download"></span> Descargar Aplicacion para Windows 32 bits v:0.2.23 </a>
     <a type="button" onclick="browseCodeEvent()" class="btn btn-lg btn-primary" href="http://github.com/kotogadekiru/UrsulaGIS"><span class="glyphicon glyphicon-flash"></span> Source on GitHub</a>
 
@@ -49,7 +49,7 @@
   
   
     
-  </div>
+  <!--/div>
   <br/>
   <br/>
   	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -60,7 +60,7 @@
 	<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 	</form>
 
-</div>
+</div-->
 <div class="container">
   <p>Ahora todos podemos ver y limpiar mapas de cosecha, descargar mapas de ndvi, generar mapas de potencial y recomendaciones de fertilizaci&oacute;n. Luego generar mapas de m&aacute;rgenes para auditar las decisiones econ&oacute;micas y mapas de balance de nutrientes para auditar las decisiones ambientales y mejorar las decisiones a futuro.
  </p>
@@ -90,6 +90,9 @@
     <div class="col-md-6">
       <h3><span class="glyphicon glyphicon-info-sign"></span> Noticias </h3>
       <ul>
+      	<li>
+       	13 Noviembre 2020: Se liber&oacute; la versi&oacute;n 0.2.26 para Windows de 64 bits que permite visualizar las imagenes NDVI tif en el nuevo formato que estaba interfiriendo con las versi&oacute;nes anteriores. Tambien se agreg&oacute; la funcionalidad de exportar NDVI a formato KML. 
+        </li>
       	<li>
        	20 Mayo 2020: Se liber&oacute; la versi&oacute;n 0.2.24.2 para Windows de 64 bits que permite manejo en portugues e ingles ademas de castellano. Ademas incorpora varias mejoras de interfaz grafica y permite descarga masiva de NDVI y toma en cuenta el contenido de materia organica al momento de calcular la recomendacion de fertilizacion Nitrogenada. Se incorpora tambien la primerva version de la generacion de orden de compra a partir de labores y recomendaciones.
         </li>
@@ -141,13 +144,13 @@
         <li>Generar Orden de compra a partir de las labores</li>
         <li>Mantener las labores cargadas entre sesiones</li>       
         <li>Interpolar muestreo de suelos para obtener mapa de suelos</li>
-        <li>Importar mapas de cosecha con formato JohnDeere GS2</li>        
+        <!--li>Importar mapas de cosecha con formato JohnDeere GS2</li-->        
       </ul>
 
 
     </div>
     </div> <!-- row -->
- <a class="twitter-timeline" href="https://twitter.com/redbaron_ar?ref_src=twsrc%5Etfw">Tweets by redbaron_ar</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+ <a class="twitter-timeline" href="https://twitter.com/gis_ursula?ref_src=twsrc%5Etfw">Tweets by redbaron_ar</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
  <!--a class="twitter-timeline" data-width="1000" data-height="600" data-theme="dark" href="https://twitter.com/redbaron_ar?ref_src=twsrc%5Etfw">Tweets by redbaron_ar</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script-->
 
    <div class="alert alert-info text-center" role="alert">
